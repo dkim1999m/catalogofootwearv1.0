@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TOR HUB PGR | Catálogo Calzado</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <meta name="description" content="Catálogo profesional de calzado (Caterpillar y Columbia) - TOR HUB PGR" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__logo">TOR</div>
+        <div class="brand__text">
+          <div class="brand__name">TOR HUB PGR</div>
+          <div class="brand__sub">Catálogo virtual • Calzado Outdoor</div>
+        </div>
+      </div>
+
+      <div class="topbar__actions">
+        <div class="segmented" role="tablist" aria-label="Selector de marca">
+          <button class="segmented__btn is-active" data-brand="Caterpillar" role="tab" aria-selected="true">
+            Caterpillar
+          </button>
+          <button class="segmented__btn" data-brand="Columbia" role="tab" aria-selected="false">
+            Columbia
+          </button>
+          <button class="segmented__btn" data-brand="All" role="tab" aria-selected="false">
+            Todas
+          </button>
+        </div>
+        <a class="pill" href="#catalogo">Ver catálogo</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <div class="kicker">FINAL SUMMER SALE</div>
+        <h1>Calzado pro, look e-commerce, listo para vender por WhatsApp</h1>
+        <p class="muted">
+          Buscador, filtros, tallas, quick view, badges (NEW / SALE) y botón “Pedir” por producto.
+          Todo corre en GitHub Pages (hosting gratis).
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#catalogo">Explorar modelos</a>
+          <a class="btn btn--ghost" href="#como-funciona">Cómo funciona</a>
+        </div>
+
+        <div class="hero__stats">
+          <div class="stat">
+            <div class="stat__num">20</div>
+            <div class="stat__label">Modelos demo</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">2</div>
+            <div class="stat__label">Marcas</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">0</div>
+            <div class="stat__label">Backend (MVP)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__cardTop">
+          <div class="chip chip--sale">Hasta -50%</div>
+          <div class="chip">Envíos / Retiro / Cambios</div>
+        </div>
+        <div class="hero__banner">
+          <div class="banner__title">Catálogo estilo tienda</div>
+          <div class="banner__sub">Diseño limpio + UX pro</div>
+        </div>
+        <div class="hero__miniGrid" id="miniGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container" id="catalogo">
+    <div class="sectionHead">
+      <div>
+        <h2>Catálogo</h2>
+        <p class="muted">Filtra por marca, categoría, talla, precio y busca por nombre.</p>
+      </div>
+      <div class="sectionHead__right">
+        <div class="hint">Tip: haz click en un producto para “Quick View”.</div>
+      </div>
+    </div>
+
+    <section class="controls">
+      <div class="search">
+        <input id="q" type="search" placeholder="¿Qué buscas? (ej: boot, hiking, waterproof)" autocomplete="off" />
+      </div>
+
+      <div class="filters">
+        <select id="brandFilter" aria-label="Marca">
+          <option value="All">Marca: Todas</option>
+          <option value="Caterpillar">Caterpillar</option>
+          <option value="Columbia">Columbia</option>
+        </select>
+
+        <select id="categoryFilter" aria-label="Categoría">
+          <option value="All">Categoría: Todas</option>
+          <option value="Boots">Boots</option>
+          <option value="Hiking">Hiking</option>
+          <option value="Trail">Trail</option>
+          <option value="Urban">Urban</option>
+          <option value="Sandals">Sandals</option>
+        </select>
+
+        <select id="sizeFilter" aria-label="Talla">
+          <option value="All">Talla: Todas</option>
+          <option value="39">39</option>
+          <option value="40">40</option>
+          <option value="41">41</option>
+          <option value="42">42</option>
+          <option value="43">43</option>
+          <option value="44">44</option>
+          <option value="45">45</option>
+        </select>
+
+        <select id="sort" aria-label="Ordenar">
+          <option value="relevance">Ordenar: Relevancia</option>
+          <option value="priceAsc">Precio: Menor a mayor</option>
+          <option value="priceDesc">Precio: Mayor a menor</option>
+          <option value="newest">Novedades primero</option>
+          <option value="discount">Mayor descuento</option>
+        </select>
+
+        <button class="btn btn--ghost btn--small" id="reset">Reset</button>
+      </div>
+    </section>
+
+    <section class="grid" id="grid" aria-live="polite"></section>
+
+    <section class="faq" id="como-funciona">
+      <h3>Cómo funciona (sin backend)</h3>
+      <div class="faq__grid">
+        <div class="card">
+          <h4>Productos en JSON</h4>
+          <p class="muted">Editas <code>products.json</code> para cambiar precios, tallas, stock y novedades.</p>
+        </div>
+        <div class="card">
+          <h4>Pedidos por WhatsApp</h4>
+          <p class="muted">Cada “Pedir” abre WhatsApp con mensaje precargado (modelo + talla + precio).</p>
+        </div>
+        <div class="card">
+          <h4>Escalabilidad</h4>
+          <p class="muted">A futuro agregas backend para inventario real, panel admin, pagos y analytics.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating WhatsApp -->
+  <a class="fab" id="fabWhatsapp" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <span>WhatsApp</span>
+  </a>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="Detalle de producto">
+    <div class="modal__overlay" data-close="1"></div>
+    <div class="modal__panel" role="document">
+      <button class="modal__close" data-close="1" aria-label="Cerrar">✕</button>
+      <div class="modal__body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="muted">© TOR HUB PGR • Catálogo demo • GitHub Pages</div>
+      <div class="muted">Hecho para MYPES de calzado (piloto)</div>
+    </div>
+  </footer>
+
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,681 @@
+[
+  {
+    "id": "cat-001",
+    "brand": "Caterpillar",
+    "sku": "CAT-BOOT-001",
+    "name": "Boot TerraShield WP",
+    "category": "Boots",
+    "price": 699.0,
+    "discount": 20,
+    "isNew": true,
+    "rating": 4.7,
+    "colors": [
+      "Honey",
+      "Black"
+    ],
+    "colorHex": "#d4a25b",
+    "sizes": [
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45
+    ],
+    "tags": [
+      "workwear",
+      "waterproof",
+      "outdoor"
+    ],
+    "features": [
+      "Cuero premium look",
+      "Waterproof (demo)",
+      "Suela grip tipo trail",
+      "Plantilla confort de alto retorno"
+    ]
+  },
+  {
+    "id": "cat-002",
+    "brand": "Caterpillar",
+    "sku": "CAT-BOOT-002",
+    "name": "RuggedForge 6\" Leather",
+    "category": "Boots",
+    "price": 749.0,
+    "discount": 0,
+    "isNew": false,
+    "rating": 4.5,
+    "colors": [
+      "Brown"
+    ],
+    "colorHex": "#9c6a3a",
+    "sizes": [
+      40,
+      41,
+      42,
+      43,
+      44
+    ],
+    "tags": [
+      "leather",
+      "rugged",
+      "daily"
+    ],
+    "features": [
+      "Perfil robusto",
+      "Amortiguación comfort (demo)",
+      "Diseño urbano-outdoor",
+      "Costuras reforzadas (demo)"
+    ]
+  },
+  {
+    "id": "cat-003",
+    "brand": "Caterpillar",
+    "sku": "CAT-HIKE-003",
+    "name": "HikeCore Traverse",
+    "category": "Hiking",
+    "price": 639.0,
+    "discount": 15,
+    "isNew": true,
+    "rating": 4.6,
+    "colors": [
+      "Olive",
+      "Black"
+    ],
+    "colorHex": "#6b7d4a",
+    "sizes": [
+      39,
+      40,
+      41,
+      42,
+      43,
+      44
+    ],
+    "tags": [
+      "hiking",
+      "breathable",
+      "grip"
+    ],
+    "features": [
+      "Upper respirable (demo)",
+      "Grip multi-terreno",
+      "Soporte de tobillo medio",
+      "Ligero para caminatas largas"
+    ]
+  },
+  {
+    "id": "cat-004",
+    "brand": "Caterpillar",
+    "sku": "CAT-TRAIL-004",
+    "name": "TrailBurst GTX Style",
+    "category": "Trail",
+    "price": 579.0,
+    "discount": 10,
+    "isNew": false,
+    "rating": 4.3,
+    "colors": [
+      "Graphite"
+    ],
+    "colorHex": "#7c848c",
+    "sizes": [
+      40,
+      41,
+      42,
+      43
+    ],
+    "tags": [
+      "trail",
+      "grip",
+      "light"
+    ],
+    "features": [
+      "Diseño trail agresivo",
+      "Amortiguación rápida (demo)",
+      "Suela con tacos",
+      "Ideal para ciudad + ruta"
+    ]
+  },
+  {
+    "id": "cat-005",
+    "brand": "Caterpillar",
+    "sku": "CAT-URB-005",
+    "name": "UrbanSteel Low",
+    "category": "Urban",
+    "price": 529.0,
+    "discount": 0,
+    "isNew": true,
+    "rating": 4.4,
+    "colors": [
+      "Black",
+      "Sand"
+    ],
+    "colorHex": "#8d7b62",
+    "sizes": [
+      39,
+      40,
+      41,
+      42,
+      43
+    ],
+    "tags": [
+      "urban",
+      "minimal",
+      "daily"
+    ],
+    "features": [
+      "Look minimal robusto",
+      "Confort para uso diario",
+      "Materiales resistentes (demo)",
+      "Fácil de combinar"
+    ]
+  },
+  {
+    "id": "cat-006",
+    "brand": "Caterpillar",
+    "sku": "CAT-BOOT-006",
+    "name": "IronPath 8\" Pro",
+    "category": "Boots",
+    "price": 799.0,
+    "discount": 25,
+    "isNew": false,
+    "rating": 4.8,
+    "colors": [
+      "Honey"
+    ],
+    "colorHex": "#c98b3b",
+    "sizes": [
+      41,
+      42,
+      43,
+      44,
+      45
+    ],
+    "tags": [
+      "workwear",
+      "heavy",
+      "boot"
+    ],
+    "features": [
+      "Caña alta soporte",
+      "Diseño heavy-duty (demo)",
+      "Suela anti-fatiga (demo)",
+      "Construcción robusta"
+    ]
+  },
+  {
+    "id": "cat-007",
+    "brand": "Caterpillar",
+    "sku": "CAT-HIKE-007",
+    "name": "SummitLine Mid",
+    "category": "Hiking",
+    "price": 669.0,
+    "discount": 0,
+    "isNew": false,
+    "rating": 4.2,
+    "colors": [
+      "Brown",
+      "Olive"
+    ],
+    "colorHex": "#7c5a3a",
+    "sizes": [
+      39,
+      40,
+      41,
+      42,
+      43,
+      44
+    ],
+    "tags": [
+      "hiking",
+      "mid",
+      "support"
+    ],
+    "features": [
+      "Soporte medio",
+      "Suela de tracción",
+      "Forro suave (demo)",
+      "Uso outdoor ligero"
+    ]
+  },
+  {
+    "id": "cat-008",
+    "brand": "Caterpillar",
+    "sku": "CAT-TRAIL-008",
+    "name": "RapidTread Runner",
+    "category": "Trail",
+    "price": 499.0,
+    "discount": 5,
+    "isNew": true,
+    "rating": 4.1,
+    "colors": [
+      "Black"
+    ],
+    "colorHex": "#9aa0a6",
+    "sizes": [
+      39,
+      40,
+      41,
+      42,
+      43
+    ],
+    "tags": [
+      "trail",
+      "runner",
+      "city"
+    ],
+    "features": [
+      "Perfil runner",
+      "Grip trail",
+      "Ligero (demo)",
+      "Transición ciudad-ruta"
+    ]
+  },
+  {
+    "id": "cat-009",
+    "brand": "Caterpillar",
+    "sku": "CAT-URB-009",
+    "name": "ConcreteCraft Sneaker",
+    "category": "Urban",
+    "price": 459.0,
+    "discount": 12,
+    "isNew": false,
+    "rating": 4.0,
+    "colors": [
+      "Sand",
+      "Black"
+    ],
+    "colorHex": "#b09a7a",
+    "sizes": [
+      40,
+      41,
+      42,
+      43,
+      44
+    ],
+    "tags": [
+      "sneaker",
+      "urban",
+      "daily"
+    ],
+    "features": [
+      "Sneaker robusto",
+      "Plantilla cómoda",
+      "Suela durable (demo)",
+      "Estilo street-outdoor"
+    ]
+  },
+  {
+    "id": "cat-010",
+    "brand": "Caterpillar",
+    "sku": "CAT-SAND-010",
+    "name": "VentTrail Sandal",
+    "category": "Sandals",
+    "price": 329.0,
+    "discount": 0,
+    "isNew": true,
+    "rating": 4.3,
+    "colors": [
+      "Black",
+      "Olive"
+    ],
+    "colorHex": "#6b7280",
+    "sizes": [
+      39,
+      40,
+      41,
+      42,
+      43,
+      44
+    ],
+    "tags": [
+      "sandals",
+      "summer",
+      "outdoor"
+    ],
+    "features": [
+      "Sandalia outdoor (demo)",
+      "Correas ajustables",
+      "Suela grip",
+      "Uso verano / viajes"
+    ]
+  },
+  {
+    "id": "col-001",
+    "brand": "Columbia",
+    "sku": "COL-HIKE-001",
+    "name": "PeakVista Waterproof",
+    "category": "Hiking",
+    "price": 589.0,
+    "discount": 18,
+    "isNew": true,
+    "rating": 4.6,
+    "colors": [
+      "Grey",
+      "Blue"
+    ],
+    "colorHex": "#8ab4f8",
+    "sizes": [
+      39,
+      40,
+      41,
+      42,
+      43,
+      44
+    ],
+    "tags": [
+      "waterproof",
+      "hiking",
+      "light"
+    ],
+    "features": [
+      "Waterproof (demo)",
+      "Upper respirable (demo)",
+      "Tracción multi-terreno",
+      "Ideal trekking ligero"
+    ]
+  },
+  {
+    "id": "col-002",
+    "brand": "Columbia",
+    "sku": "COL-TRAIL-002",
+    "name": "TrailNova Grip",
+    "category": "Trail",
+    "price": 519.0,
+    "discount": 0,
+    "isNew": false,
+    "rating": 4.4,
+    "colors": [
+      "Black",
+      "Grey"
+    ],
+    "colorHex": "#94a3b8",
+    "sizes": [
+      40,
+      41,
+      42,
+      43
+    ],
+    "tags": [
+      "trail",
+      "grip",
+      "runner"
+    ],
+    "features": [
+      "Suela de tacos",
+      "Amortiguación rápida (demo)",
+      "Ligero para trail",
+      "Uso mixto"
+    ]
+  },
+  {
+    "id": "col-003",
+    "brand": "Columbia",
+    "sku": "COL-URB-003",
+    "name": "CityRidge Sneaker",
+    "category": "Urban",
+    "price": 449.0,
+    "discount": 10,
+    "isNew": true,
+    "rating": 4.2,
+    "colors": [
+      "White",
+      "Grey"
+    ],
+    "colorHex": "#cbd5e1",
+    "sizes": [
+      39,
+      40,
+      41,
+      42,
+      43
+    ],
+    "tags": [
+      "urban",
+      "daily",
+      "minimal"
+    ],
+    "features": [
+      "Estilo urbano",
+      "Confort diario",
+      "Material resistente (demo)",
+      "Look limpio premium"
+    ]
+  },
+  {
+    "id": "col-004",
+    "brand": "Columbia",
+    "sku": "COL-BOOT-004",
+    "name": "StormHaven Mid",
+    "category": "Boots",
+    "price": 679.0,
+    "discount": 22,
+    "isNew": false,
+    "rating": 4.7,
+    "colors": [
+      "Brown",
+      "Black"
+    ],
+    "colorHex": "#8b5a2b",
+    "sizes": [
+      41,
+      42,
+      43,
+      44,
+      45
+    ],
+    "tags": [
+      "boots",
+      "waterproof",
+      "outdoor"
+    ],
+    "features": [
+      "Mid boot soporte",
+      "Waterproof (demo)",
+      "Grip tipo hiking",
+      "Comodidad prolongada"
+    ]
+  },
+  {
+    "id": "col-005",
+    "brand": "Columbia",
+    "sku": "COL-HIKE-005",
+    "name": "AlpineStep Vent",
+    "category": "Hiking",
+    "price": 539.0,
+    "discount": 0,
+    "isNew": false,
+    "rating": 4.1,
+    "colors": [
+      "Olive"
+    ],
+    "colorHex": "#7a8f58",
+    "sizes": [
+      39,
+      40,
+      41,
+      42,
+      43,
+      44
+    ],
+    "tags": [
+      "hiking",
+      "vent",
+      "comfort"
+    ],
+    "features": [
+      "Ventilación (demo)",
+      "Soporte medio",
+      "Suela grip",
+      "Trekking de día completo"
+    ]
+  },
+  {
+    "id": "col-006",
+    "brand": "Columbia",
+    "sku": "COL-TRAIL-006",
+    "name": "TerraFlow Runner",
+    "category": "Trail",
+    "price": 489.0,
+    "discount": 8,
+    "isNew": true,
+    "rating": 4.3,
+    "colors": [
+      "Blue",
+      "Black"
+    ],
+    "colorHex": "#60a5fa",
+    "sizes": [
+      39,
+      40,
+      41,
+      42,
+      43
+    ],
+    "tags": [
+      "trail",
+      "runner",
+      "light"
+    ],
+    "features": [
+      "Runner trail",
+      "Ligero (demo)",
+      "Tracción agresiva",
+      "Uso ciudad + ruta"
+    ]
+  },
+  {
+    "id": "col-007",
+    "brand": "Columbia",
+    "sku": "COL-URB-007",
+    "name": "MetroPeak Low",
+    "category": "Urban",
+    "price": 469.0,
+    "discount": 0,
+    "isNew": false,
+    "rating": 4.0,
+    "colors": [
+      "Grey"
+    ],
+    "colorHex": "#9ca3af",
+    "sizes": [
+      40,
+      41,
+      42,
+      43,
+      44
+    ],
+    "tags": [
+      "urban",
+      "street",
+      "daily"
+    ],
+    "features": [
+      "Street clean",
+      "Plantilla comfort",
+      "Suela durable (demo)",
+      "Uso diario"
+    ]
+  },
+  {
+    "id": "col-008",
+    "brand": "Columbia",
+    "sku": "COL-BOOT-008",
+    "name": "SummitGuard 6\"",
+    "category": "Boots",
+    "price": 699.0,
+    "discount": 15,
+    "isNew": true,
+    "rating": 4.5,
+    "colors": [
+      "Black"
+    ],
+    "colorHex": "#a3a3a3",
+    "sizes": [
+      41,
+      42,
+      43,
+      44
+    ],
+    "tags": [
+      "boots",
+      "outdoor",
+      "grip"
+    ],
+    "features": [
+      "Boot 6 pulgadas",
+      "Grip multi-terreno",
+      "Comodidad prolongada",
+      "Perfil outdoor pro"
+    ]
+  },
+  {
+    "id": "col-009",
+    "brand": "Columbia",
+    "sku": "COL-SAND-009",
+    "name": "CoastLine Sandal",
+    "category": "Sandals",
+    "price": 299.0,
+    "discount": 0,
+    "isNew": true,
+    "rating": 4.2,
+    "colors": [
+      "Black",
+      "Blue"
+    ],
+    "colorHex": "#64748b",
+    "sizes": [
+      39,
+      40,
+      41,
+      42,
+      43,
+      44
+    ],
+    "tags": [
+      "sandals",
+      "summer",
+      "travel"
+    ],
+    "features": [
+      "Sandalia travel",
+      "Ajuste rápido",
+      "Suela grip",
+      "Ideal verano"
+    ]
+  },
+  {
+    "id": "col-010",
+    "brand": "Columbia",
+    "sku": "COL-HIKE-010",
+    "name": "RidgeWalker Pro",
+    "category": "Hiking",
+    "price": 599.0,
+    "discount": 12,
+    "isNew": false,
+    "rating": 4.4,
+    "colors": [
+      "Brown",
+      "Grey"
+    ],
+    "colorHex": "#a78b6d",
+    "sizes": [
+      40,
+      41,
+      42,
+      43,
+      44,
+      45
+    ],
+    "tags": [
+      "hiking",
+      "support",
+      "durable"
+    ],
+    "features": [
+      "Soporte estable",
+      "Tracción fuerte",
+      "Material durable (demo)",
+      "Trekking exigente"
+    ]
+  }
+]
