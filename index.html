@@ -3,9 +3,149 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TOR HUB PGR | Catálogo Calzado</title>
-  <link rel="stylesheet" href="assets/styles.css" />
-  <meta name="description" content="Catálogo profesional de calzado (Caterpillar y Columbia) - TOR HUB PGR" />
+  <title>TOR HUB PGR | Catálogo Calzado (1 archivo)</title>
+  <meta name="description" content="Catálogo pro de calzado (Caterpillar y Columbia) en un solo archivo para GitHub Pages." />
+  <style>
+    :root{
+      --bg:#0b0f0d;
+      --panel:#0f1713;
+      --card:#101a15;
+      --line:rgba(255,255,255,.08);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.66);
+      --accent:#22c55e;
+      --accent2:#f59e0b;
+      --shadow: 0 14px 50px rgba(0,0,0,.45);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;
+      background:radial-gradient(1200px 600px at 20% 0%, rgba(34,197,94,.18), transparent 60%),
+                 radial-gradient(900px 600px at 90% 10%, rgba(245,158,11,.18), transparent 55%),
+                 var(--bg);
+      color:var(--text)
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1180px;margin:0 auto;padding:0 18px}
+
+    /* Topbar */
+    .topbar{position:sticky;top:0;z-index:10;background:rgba(10,14,12,.78);border-bottom:1px solid var(--line);backdrop-filter: blur(10px);}
+    .topbar__inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand__logo{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;
+      background:linear-gradient(135deg, rgba(34,197,94,.9), rgba(245,158,11,.75));
+      color:#08110c;font-weight:900;letter-spacing:.6px;box-shadow:0 10px 30px rgba(34,197,94,.2);
+    }
+    .brand__name{font-weight:800;letter-spacing:.3px}
+    .brand__sub{font-size:12px;color:var(--muted)}
+
+    .topbar__actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .segmented{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:rgba(255,255,255,.04)}
+    .segmented__btn{padding:10px 12px;border:0;background:transparent;color:var(--muted);cursor:pointer;font-weight:800;font-size:13px}
+    .segmented__btn.is-active{color:var(--text);background:rgba(34,197,94,.14)}
+    .pill{padding:10px 12px;border-radius:999px;border:1px solid var(--line);color:var(--text);font-weight:800;font-size:13px;background:rgba(255,255,255,.03)}
+
+    /* Hero */
+    .hero{padding:26px 0 18px}
+    .hero__inner{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:stretch}
+    @media (max-width:980px){.hero__inner{grid-template-columns:1fr}}
+
+    .kicker{display:inline-flex;gap:10px;align-items:center;font-weight:900;letter-spacing:.5px;color:rgba(245,158,11,.95);margin-bottom:10px}
+    .hero h1{margin:0 0 10px;font-size:34px;line-height:1.12}
+    .muted{color:var(--muted)}
+
+    .hero__cta{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 10px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 14px;border-radius:14px;
+      border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);font-weight:900;cursor:pointer}
+    .btn--primary{background:linear-gradient(135deg, rgba(34,197,94,.95), rgba(34,197,94,.68));border-color:transparent;color:#07100b}
+    .btn--ghost:hover{border-color:rgba(255,255,255,.18)}
+    .btn--small{padding:10px 12px;border-radius:12px;font-weight:900}
+
+    .hero__stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .stat{padding:12px 14px;border-radius:var(--radius);border:1px solid var(--line);background:rgba(255,255,255,.03);min-width:130px}
+    .stat__num{font-size:22px;font-weight:950}
+    .stat__label{font-size:12px;color:var(--muted)}
+
+    .hero__card{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);padding:14px;display:flex;flex-direction:column;gap:12px}
+    .hero__cardTop{display:flex;gap:10px;flex-wrap:wrap}
+    .chip{display:inline-flex;align-items:center;gap:8px;font-weight:950;font-size:12px;padding:8px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+    .chip--sale{border-color:rgba(245,158,11,.35);background:rgba(245,158,11,.12)}
+    .hero__banner{padding:14px;border-radius:16px;border:1px dashed rgba(255,255,255,.16);background:rgba(0,0,0,.15)}
+    .banner__title{font-weight:950}
+    .banner__sub{color:var(--muted);font-size:13px;margin-top:3px}
+    .hero__miniGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    @media (max-width:520px){.hero__miniGrid{grid-template-columns:repeat(2,1fr)}}
+
+    /* Controls */
+    .sectionHead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:18px}
+    .sectionHead h2{margin:0;font-size:26px}
+    .hint{font-size:12px;color:var(--muted)}
+
+    .controls{margin-top:14px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.03);padding:12px}
+    .search input{width:100%;padding:12px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--text);outline:none;font-weight:800}
+    .filters{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    select{padding:11px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.22);color:var(--text);outline:none;font-weight:900}
+
+    /* Grid */
+    .grid{margin:14px 0 26px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    @media (max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:780px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:480px){.grid{grid-template-columns:1fr}}
+
+    .card{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.25)}
+    .card__img{height:170px;display:grid;place-items:center;
+      background:radial-gradient(300px 200px at 30% 20%, rgba(34,197,94,.20), transparent 60%),
+                 radial-gradient(250px 200px at 80% 10%, rgba(245,158,11,.20), transparent 55%),
+                 rgba(0,0,0,.25);
+      border-bottom:1px solid var(--line)}
+    .card__img svg{width:92%;height:92%}
+    .card__body{padding:12px}
+
+    .badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+    .badge{font-size:11px;font-weight:950;letter-spacing:.4px;padding:6px 8px;border-radius:999px;border:1px solid var(--line);
+      background:rgba(255,255,255,.03);color:var(--muted)}
+    .badge--new{border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.12);color:rgba(255,255,255,.9)}
+    .badge--sale{border-color:rgba(245,158,11,.35);background:rgba(245,158,11,.12);color:rgba(255,255,255,.9)}
+
+    .card__title{margin:0;font-size:15px;font-weight:950;line-height:1.2}
+    .card__meta{margin-top:6px;color:var(--muted);font-size:12px;display:flex;gap:10px;flex-wrap:wrap}
+    .card__priceRow{display:flex;align-items:baseline;justify-content:space-between;margin-top:10px;gap:10px}
+    .price{font-weight:950;font-size:18px}
+    .price .old{font-weight:950;font-size:12px;color:rgba(255,255,255,.55);text-decoration:line-through;margin-left:6px}
+    .card__actions{display:flex;gap:10px;margin-top:10px}
+    .card__actions .btn{flex:1}
+
+    /* FAB */
+    .fab{position:fixed;right:18px;bottom:18px;z-index:20;padding:12px 14px;border-radius:999px;
+      background:linear-gradient(135deg, rgba(34,197,94,.95), rgba(34,197,94,.65));
+      color:#07100b;font-weight:950;box-shadow:0 18px 55px rgba(34,197,94,.28)}
+
+    /* Footer */
+    .footer{border-top:1px solid var(--line);padding:18px 0;margin-top:20px;background:rgba(255,255,255,.02)}
+    .footer__inner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;display:none;z-index:30}
+    .modal.is-open{display:block}
+    .modal__overlay{position:absolute;inset:0;background:rgba(0,0,0,.64)}
+    .modal__panel{position:relative;max-width:980px;margin:6vh auto 0;background:linear-gradient(180deg, rgba(16,26,21,.98), rgba(8,12,10,.98));
+      border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+    @media (max-width:1000px){.modal__panel{margin:4vh 14px 0}}
+    .modal__close{position:absolute;top:10px;right:10px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);border-radius:12px;padding:8px 10px;cursor:pointer}
+    .modal__body{display:grid;grid-template-columns:1.05fr .95fr}
+    @media (max-width:860px){.modal__body{grid-template-columns:1fr}}
+    .modal__media{min-height:320px;border-right:1px solid var(--line);display:grid;place-items:center;background:rgba(0,0,0,.18)}
+    @media (max-width:860px){.modal__media{border-right:0;border-bottom:1px solid var(--line)}}
+    .modal__content{padding:16px}
+    .pills{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+    .pills button{border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);padding:10px 12px;border-radius:999px;font-weight:950;cursor:pointer}
+    .pills button.is-active{border-color:rgba(34,197,94,.45);background:rgba(34,197,94,.14)}
+    .small{font-size:12px;color:var(--muted)}
+    .hr{height:1px;background:var(--line);margin:12px 0}
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -14,21 +154,15 @@
         <div class="brand__logo">TOR</div>
         <div class="brand__text">
           <div class="brand__name">TOR HUB PGR</div>
-          <div class="brand__sub">Catálogo virtual • Calzado Outdoor</div>
+          <div class="brand__sub">Catálogo virtual • Calzado Outdoor • 1 archivo</div>
         </div>
       </div>
 
       <div class="topbar__actions">
         <div class="segmented" role="tablist" aria-label="Selector de marca">
-          <button class="segmented__btn is-active" data-brand="Caterpillar" role="tab" aria-selected="true">
-            Caterpillar
-          </button>
-          <button class="segmented__btn" data-brand="Columbia" role="tab" aria-selected="false">
-            Columbia
-          </button>
-          <button class="segmented__btn" data-brand="All" role="tab" aria-selected="false">
-            Todas
-          </button>
+          <button class="segmented__btn is-active" data-brand="Caterpillar" role="tab" aria-selected="true">Caterpillar</button>
+          <button class="segmented__btn" data-brand="Columbia" role="tab" aria-selected="false">Columbia</button>
+          <button class="segmented__btn" data-brand="All" role="tab" aria-selected="false">Todas</button>
         </div>
         <a class="pill" href="#catalogo">Ver catálogo</a>
       </div>
@@ -39,41 +173,29 @@
     <div class="container hero__inner">
       <div class="hero__copy">
         <div class="kicker">FINAL SUMMER SALE</div>
-        <h1>Calzado pro, look e-commerce, listo para vender por WhatsApp</h1>
-        <p class="muted">
-          Buscador, filtros, tallas, quick view, badges (NEW / SALE) y botón “Pedir” por producto.
-          Todo corre en GitHub Pages (hosting gratis).
-        </p>
+        <h1>Catálogo pro en 1 solo archivo (index.html) para subir fácil a GitHub</h1>
+        <p class="muted">Este archivo incluye: estilos + datos + JS. Solo subes <b>index.html</b> al repo y activas GitHub Pages.</p>
 
         <div class="hero__cta">
           <a class="btn btn--primary" href="#catalogo">Explorar modelos</a>
-          <a class="btn btn--ghost" href="#como-funciona">Cómo funciona</a>
+          <a class="btn btn--ghost" href="#como-subir">Cómo subir</a>
         </div>
 
         <div class="hero__stats">
-          <div class="stat">
-            <div class="stat__num">20</div>
-            <div class="stat__label">Modelos demo</div>
-          </div>
-          <div class="stat">
-            <div class="stat__num">2</div>
-            <div class="stat__label">Marcas</div>
-          </div>
-          <div class="stat">
-            <div class="stat__num">0</div>
-            <div class="stat__label">Backend (MVP)</div>
-          </div>
+          <div class="stat"><div class="stat__num">20</div><div class="stat__label">Modelos demo</div></div>
+          <div class="stat"><div class="stat__num">2</div><div class="stat__label">Marcas</div></div>
+          <div class="stat"><div class="stat__num">1</div><div class="stat__label">Archivo</div></div>
         </div>
       </div>
 
       <div class="hero__card">
         <div class="hero__cardTop">
           <div class="chip chip--sale">Hasta -50%</div>
-          <div class="chip">Envíos / Retiro / Cambios</div>
+          <div class="chip">Filtro • Buscador • Quick View</div>
         </div>
         <div class="hero__banner">
-          <div class="banner__title">Catálogo estilo tienda</div>
-          <div class="banner__sub">Diseño limpio + UX pro</div>
+          <div class="banner__title">Look e-commerce</div>
+          <div class="banner__sub">Caterpillar + Columbia (cambiable)</div>
         </div>
         <div class="hero__miniGrid" id="miniGrid"></div>
       </div>
@@ -87,7 +209,7 @@
         <p class="muted">Filtra por marca, categoría, talla, precio y busca por nombre.</p>
       </div>
       <div class="sectionHead__right">
-        <div class="hint">Tip: haz click en un producto para “Quick View”.</div>
+        <div class="hint">Tip: click en producto → “Quick View”.</div>
       </div>
     </div>
 
@@ -137,31 +259,21 @@
 
     <section class="grid" id="grid" aria-live="polite"></section>
 
-    <section class="faq" id="como-funciona">
-      <h3>Cómo funciona (sin backend)</h3>
-      <div class="faq__grid">
-        <div class="card">
-          <h4>Productos en JSON</h4>
-          <p class="muted">Editas <code>products.json</code> para cambiar precios, tallas, stock y novedades.</p>
-        </div>
-        <div class="card">
-          <h4>Pedidos por WhatsApp</h4>
-          <p class="muted">Cada “Pedir” abre WhatsApp con mensaje precargado (modelo + talla + precio).</p>
-        </div>
-        <div class="card">
-          <h4>Escalabilidad</h4>
-          <p class="muted">A futuro agregas backend para inventario real, panel admin, pagos y analytics.</p>
-        </div>
+    <section class="faq" id="como-subir">
+      <h3>Cómo subir (solo 1 archivo)</h3>
+      <div class="card" style="padding:14px">
+        <ol class="muted" style="margin:0;padding-left:18px">
+          <li>En GitHub → tu repo vacío → clic <b>uploading an existing file</b> (o <b>Add file → Upload files</b>)</li>
+          <li>Sube solo este archivo: <b>index.html</b></li>
+          <li>Settings → Pages → Deploy from a branch → <b>main</b> y carpeta <b>/(root)</b></li>
+          <li>Abre tu link: <b>https://dkim1999m.github.io/catalogofootwearv1.0/</b></li>
+        </ol>
       </div>
     </section>
   </main>
 
-  <!-- Floating WhatsApp -->
-  <a class="fab" id="fabWhatsapp" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
-    <span>WhatsApp</span>
-  </a>
+  <a class="fab" id="fabWhatsapp" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><span>WhatsApp</span></a>
 
-  <!-- Modal -->
   <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="Detalle de producto">
     <div class="modal__overlay" data-close="1"></div>
     <div class="modal__panel" role="document">
@@ -172,11 +284,335 @@
 
   <footer class="footer">
     <div class="container footer__inner">
-      <div class="muted">© TOR HUB PGR • Catálogo demo • GitHub Pages</div>
-      <div class="muted">Hecho para MYPES de calzado (piloto)</div>
+      <div class="muted">© TOR HUB PGR • Catálogo demo • 1 archivo</div>
+      <div class="muted">Luego lo convertimos a multi-archivos y backend</div>
     </div>
   </footer>
 
-  <script src="assets/app.js" defer></script>
+  <script>
+    // === CONFIG (WHATSAPP + YAPE) ===
+    const WHATSAPP = {
+      Caterpillar: "51927137867", // WhatsApp Perú: 51 + 927137867
+      Columbia: "51927137867",
+      default: "51927137867"
+    };
+
+    // Si quieres que salga tu QR real SIN subir imágenes, pega aquí un DataURL (base64) de tu QR.
+    // Ejemplo: "data:image/png;base64,iVBORw0K..."
+    const YAPE_QR_DATA_URL = ""; // <- pega aquí tu QR en base64 (opcional)
+    const YAPE_OWNER = "Kim Dae";
+    const YAPE_NOTE = "Pago por Yape (envía captura)";
+
+    // === DATA (20 MODELOS DEMO) ===
+    const PRODUCTS = [
+      {id:"cat-001",brand:"Caterpillar",sku:"CAT-BOOT-001",name:"Boot TerraShield WP",category:"Boots",price:699,discount:20,isNew:true,rating:4.7,colors:["Honey","Black"],colorHex:"#d4a25b",sizes:[39,40,41,42,43,44,45],tags:["workwear","waterproof","outdoor"],features:["Cuero premium look","Waterproof (demo)","Suela grip tipo trail","Plantilla confort de alto retorno"]},
+      {id:"cat-002",brand:"Caterpillar",sku:"CAT-BOOT-002",name:"RuggedForge 6\" Leather",category:"Boots",price:749,discount:0,isNew:false,rating:4.5,colors:["Brown"],colorHex:"#9c6a3a",sizes:[40,41,42,43,44],tags:["leather","rugged","daily"],features:["Perfil robusto","Amortiguación comfort (demo)","Diseño urbano-outdoor","Costuras reforzadas (demo)"]},
+      {id:"cat-003",brand:"Caterpillar",sku:"CAT-HIKE-003",name:"HikeCore Traverse",category:"Hiking",price:639,discount:15,isNew:true,rating:4.6,colors:["Olive","Black"],colorHex:"#6b7d4a",sizes:[39,40,41,42,43,44],tags:["hiking","breathable","grip"],features:["Upper respirable (demo)","Grip multi-terreno","Soporte de tobillo medio","Ligero para caminatas largas"]},
+      {id:"cat-004",brand:"Caterpillar",sku:"CAT-TRAIL-004",name:"TrailBurst GTX Style",category:"Trail",price:579,discount:10,isNew:false,rating:4.3,colors:["Graphite"],colorHex:"#7c848c",sizes:[40,41,42,43],tags:["trail","grip","light"],features:["Diseño trail agresivo","Amortiguación rápida (demo)","Suela con tacos","Ideal para ciudad + ruta"]},
+      {id:"cat-005",brand:"Caterpillar",sku:"CAT-URB-005",name:"UrbanSteel Low",category:"Urban",price:529,discount:0,isNew:true,rating:4.4,colors:["Black","Sand"],colorHex:"#8d7b62",sizes:[39,40,41,42,43],tags:["urban","minimal","daily"],features:["Look minimal robusto","Confort para uso diario","Materiales resistentes (demo)","Fácil de combinar"]},
+      {id:"cat-006",brand:"Caterpillar",sku:"CAT-BOOT-006",name:"IronPath 8\" Pro",category:"Boots",price:799,discount:25,isNew:false,rating:4.8,colors:["Honey"],colorHex:"#c98b3b",sizes:[41,42,43,44,45],tags:["workwear","heavy","boot"],features:["Caña alta soporte","Diseño heavy-duty (demo)","Suela anti-fatiga (demo)","Construcción robusta"]},
+      {id:"cat-007",brand:"Caterpillar",sku:"CAT-HIKE-007",name:"SummitLine Mid",category:"Hiking",price:669,discount:0,isNew:false,rating:4.2,colors:["Brown","Olive"],colorHex:"#7c5a3a",sizes:[39,40,41,42,43,44],tags:["hiking","mid","support"],features:["Soporte medio","Suela de tracción","Forro suave (demo)","Uso outdoor ligero"]},
+      {id:"cat-008",brand:"Caterpillar",sku:"CAT-TRAIL-008",name:"RapidTread Runner",category:"Trail",price:499,discount:5,isNew:true,rating:4.1,colors:["Black"],colorHex:"#9aa0a6",sizes:[39,40,41,42,43],tags:["trail","runner","city"],features:["Perfil runner","Grip trail","Ligero (demo)","Transición ciudad-ruta"]},
+      {id:"cat-009",brand:"Caterpillar",sku:"CAT-URB-009",name:"ConcreteCraft Sneaker",category:"Urban",price:459,discount:12,isNew:false,rating:4.0,colors:["Sand","Black"],colorHex:"#b09a7a",sizes:[40,41,42,43,44],tags:["sneaker","urban","daily"],features:["Sneaker robusto","Plantilla cómoda","Suela durable (demo)","Estilo street-outdoor"]},
+      {id:"cat-010",brand:"Caterpillar",sku:"CAT-SAND-010",name:"VentTrail Sandal",category:"Sandals",price:329,discount:0,isNew:true,rating:4.3,colors:["Black","Olive"],colorHex:"#6b7280",sizes:[39,40,41,42,43,44],tags:["sandals","summer","outdoor"],features:["Sandalia outdoor (demo)","Correas ajustables","Suela grip","Uso verano / viajes"]},
+
+      {id:"col-001",brand:"Columbia",sku:"COL-HIKE-001",name:"PeakVista Waterproof",category:"Hiking",price:589,discount:18,isNew:true,rating:4.6,colors:["Grey","Blue"],colorHex:"#8ab4f8",sizes:[39,40,41,42,43,44],tags:["waterproof","hiking","light"],features:["Waterproof (demo)","Upper respirable (demo)","Tracción multi-terreno","Ideal trekking ligero"]},
+      {id:"col-002",brand:"Columbia",sku:"COL-TRAIL-002",name:"TrailNova Grip",category:"Trail",price:519,discount:0,isNew:false,rating:4.4,colors:["Black","Grey"],colorHex:"#94a3b8",sizes:[40,41,42,43],tags:["trail","grip","runner"],features:["Suela de tacos","Amortiguación rápida (demo)","Ligero para trail","Uso mixto"]},
+      {id:"col-003",brand:"Columbia",sku:"COL-URB-003",name:"CityRidge Sneaker",category:"Urban",price:449,discount:10,isNew:true,rating:4.2,colors:["White","Grey"],colorHex:"#cbd5e1",sizes:[39,40,41,42,43],tags:["urban","daily","minimal"],features:["Estilo urbano","Confort diario","Material resistente (demo)","Look limpio premium"]},
+      {id:"col-004",brand:"Columbia",sku:"COL-BOOT-004",name:"StormHaven Mid",category:"Boots",price:679,discount:22,isNew:false,rating:4.7,colors:["Brown","Black"],colorHex:"#8b5a2b",sizes:[41,42,43,44,45],tags:["boots","waterproof","outdoor"],features:["Mid boot soporte","Waterproof (demo)","Grip tipo hiking","Comodidad prolongada"]},
+      {id:"col-005",brand:"Columbia",sku:"COL-HIKE-005",name:"AlpineStep Vent",category:"Hiking",price:539,discount:0,isNew:false,rating:4.1,colors:["Olive"],colorHex:"#7a8f58",sizes:[39,40,41,42,43,44],tags:["hiking","vent","comfort"],features:["Ventilación (demo)","Soporte medio","Suela grip","Trekking de día completo"]},
+      {id:"col-006",brand:"Columbia",sku:"COL-TRAIL-006",name:"TerraFlow Runner",category:"Trail",price:489,discount:8,isNew:true,rating:4.3,colors:["Blue","Black"],colorHex:"#60a5fa",sizes:[39,40,41,42,43],tags:["trail","runner","light"],features:["Runner trail","Ligero (demo)","Tracción agresiva","Uso ciudad + ruta"]},
+      {id:"col-007",brand:"Columbia",sku:"COL-URB-007",name:"MetroPeak Low",category:"Urban",price:469,discount:0,isNew:false,rating:4.0,colors:["Grey"],colorHex:"#9ca3af",sizes:[40,41,42,43,44],tags:["urban","street","daily"],features:["Street clean","Plantilla comfort","Suela durable (demo)","Uso diario"]},
+      {id:"col-008",brand:"Columbia",sku:"COL-BOOT-008",name:"SummitGuard 6\"",category:"Boots",price:699,discount:15,isNew:true,rating:4.5,colors:["Black"],colorHex:"#a3a3a3",sizes:[41,42,43,44],tags:["boots","outdoor","grip"],features:["Boot 6 pulgadas","Grip multi-terreno","Comodidad prolongada","Perfil outdoor pro"]},
+      {id:"col-009",brand:"Columbia",sku:"COL-SAND-009",name:"CoastLine Sandal",category:"Sandals",price:299,discount:0,isNew:true,rating:4.2,colors:["Black","Blue"],colorHex:"#64748b",sizes:[39,40,41,42,43,44],tags:["sandals","summer","travel"],features:["Sandalia travel","Ajuste rápido","Suela grip","Ideal verano"]},
+      {id:"col-010",brand:"Columbia",sku:"COL-HIKE-010",name:"RidgeWalker Pro",category:"Hiking",price:599,discount:12,isNew:false,rating:4.4,colors:["Brown","Grey"],colorHex:"#a78b6d",sizes:[40,41,42,43,44,45],tags:["hiking","support","durable"],features:["Soporte estable","Tracción fuerte","Material durable (demo)","Trekking exigente"]}
+    ];
+
+    // === STATE ===
+    const state = { q:"", brand:"Caterpillar", category:"All", size:"All", sort:"relevance" };
+
+    const $ = (sel) => document.querySelector(sel);
+    const money = (pen) => `S/ ${Number(pen).toFixed(2)}`;
+    const finalPrice = (p) => (!p.discount || p.discount<=0) ? p.price : Math.round((p.price*(1-p.discount/100))*100)/100;
+
+    function svgShoeCard({ brand, name, color }){
+      const accent = brand === "Caterpillar" ? "#f59e0b" : "#22c55e";
+      const base = color || "#cbd5e1";
+      return `
+      <svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${name}">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="${accent}" stop-opacity=".32"/>
+            <stop offset="1" stop-color="#000" stop-opacity=".0"/>
+          </linearGradient>
+          <filter id="s" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000" flood-opacity=".35"/>
+          </filter>
+        </defs>
+        <rect x="0" y="0" width="900" height="520" rx="28" fill="url(#g)"/>
+        <text x="40" y="70" fill="rgba(255,255,255,.85)" font-size="34" font-weight="900" letter-spacing="2">${brand}</text>
+        <path filter="url(#s)"
+          d="M140 318 C200 250, 250 220, 340 220 C420 220, 470 258, 530 268 C590 278, 650 260, 720 260 C760 260, 790 284, 790 318 C790 350, 770 372, 740 382 C680 402, 600 416, 470 416 C360 416, 270 410, 210 392 C160 376, 120 352, 140 318 Z"
+          fill="${base}" stroke="rgba(255,255,255,.18)" stroke-width="6" />
+        <path
+          d="M170 356 C250 392, 360 400, 470 400 C600 400, 680 388, 740 370 C760 364, 776 354, 786 340 L786 360 C772 386, 748 400, 720 410 C660 432, 590 446, 470 448 C350 448, 260 440, 200 424 C168 414, 138 396, 122 372 L122 350 C132 360, 150 370, 170 356 Z"
+          fill="rgba(15,23,19,.85)" />
+        <circle cx="330" cy="290" r="12" fill="rgba(255,255,255,.25)"/>
+        <circle cx="370" cy="286" r="12" fill="rgba(255,255,255,.22)"/>
+        <circle cx="410" cy="286" r="12" fill="rgba(255,255,255,.20)"/>
+        <text x="40" y="480" fill="rgba(255,255,255,.7)" font-size="22" font-weight="800">${name}</text>
+      </svg>`;
+    }
+
+    function buildWhatsappLink(product, sizeChosen){
+      const phone = WHATSAPP[product.brand] || WHATSAPP.default;
+
+      const lines = [
+        "Hola, quiero información / comprar:",
+        `${product.brand} - ${product.name}`,
+        `Precio: ${money(finalPrice(product))}`,
+        `Código: ${product.sku}`
+      ];
+      if (sizeChosen) lines.splice(2, 0, `Talla: ${sizeChosen}`);
+
+      // IMPORTANTE: usar "\n" (escape) para evitar romper el string en algunos editores/pegados.
+      const msg = lines.join("\n");
+      return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+    }
+
+    function matchFilters(p){
+      const q = state.q.trim().toLowerCase();
+      const qOk = !q || (p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q) || p.category.toLowerCase().includes(q) || (p.tags||[]).join(" ").toLowerCase().includes(q));
+      const brandOk = state.brand === "All" || p.brand === state.brand;
+      const catOk = state.category === "All" || p.category === state.category;
+      const sizeOk = state.size === "All" || (p.sizes||[]).includes(Number(state.size));
+      return qOk && brandOk && catOk && sizeOk;
+    }
+
+    function sortProducts(list){
+      const copy = [...list];
+      if(state.sort === "priceAsc") copy.sort((a,b)=>finalPrice(a)-finalPrice(b));
+      if(state.sort === "priceDesc") copy.sort((a,b)=>finalPrice(b)-finalPrice(a));
+      if(state.sort === "newest") copy.sort((a,b)=>(b.isNew?1:0)-(a.isNew?1:0));
+      if(state.sort === "discount") copy.sort((a,b)=>(b.discount||0)-(a.discount||0));
+      return copy;
+    }
+
+    function productCard(p){
+      const hasSale = (p.discount||0) > 0;
+      const old = hasSale ? `<span class="old">${money(p.price)}</span>` : "";
+      return `
+      <article class="card" data-open="${p.id}">
+        <div class="card__img">${svgShoeCard({brand:p.brand,name:p.name,color:p.colorHex})}</div>
+        <div class="card__body">
+          <div class="badges">
+            <span class="badge">${p.brand}</span>
+            <span class="badge">${p.category}</span>
+            ${p.isNew ? `<span class="badge badge--new">NEW</span>` : ``}
+            ${hasSale ? `<span class="badge badge--sale">-${p.discount}%</span>` : ``}
+          </div>
+          <h3 class="card__title">${p.name}</h3>
+          <div class="card__meta">
+            <span>SKU: <b>${p.sku}</b></span>
+            <span>Rating: <b>${p.rating.toFixed(1)}</b> ★</span>
+          </div>
+          <div class="card__priceRow">
+            <div class="price">${money(finalPrice(p))} ${old}</div>
+            <div class="small">${(p.sizes||[]).slice(0,5).join(" • ")}${(p.sizes||[]).length>5 ? " • ..." : ""}</div>
+          </div>
+          <div class="card__actions">
+            <button class="btn btn--ghost" data-open="${p.id}">Quick View</button>
+            <a class="btn btn--primary" href="${buildWhatsappLink(p)}" target="_blank" rel="noopener">Pedir</a>
+          </div>
+        </div>
+      </article>`;
+    }
+
+    function renderMiniGrid(){
+      const list = PRODUCTS.slice(0,6);
+      $("#miniGrid").innerHTML = list.map(p=>`
+        <div class="card" style="border-radius:16px;overflow:hidden">
+          <div class="card__img" style="height:120px">${svgShoeCard({brand:p.brand,name:p.name,color:p.colorHex})}</div>
+          <div class="card__body" style="padding:10px">
+            <div class="card__title" style="font-size:12px">${p.name}</div>
+            <div class="muted" style="font-size:11px;margin-top:4px">${money(finalPrice(p))}</div>
+          </div>
+        </div>`).join("");
+    }
+
+    function openModal(productId){
+      const p = PRODUCTS.find(x=>x.id===productId);
+      if(!p) return;
+
+      const hasSale = (p.discount||0) > 0;
+      const sizes = (p.sizes||[]).map(sz=>`<button class="sizeBtn" data-size="${sz}">${sz}</button>`).join("");
+
+      const yapeQR = YAPE_QR_DATA_URL
+        ? `<img src="${YAPE_QR_DATA_URL}" alt="QR Yape" style="width:220px;height:220px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.03);object-fit:cover"/>`
+        : `<div style="width:220px;height:220px;border-radius:18px;border:1px dashed rgba(255,255,255,.22);display:grid;place-items:center;text-align:center;padding:14px" class="muted">
+             <div>
+               <div style="font-weight:950;color:rgba(255,255,255,.85)">QR Yape (opcional)</div>
+               <div style="font-size:12px;margin-top:6px">Pega tu QR en <b>YAPE_QR_DATA_URL</b> (base64) y aparecerá aquí.</div>
+             </div>
+           </div>`;
+
+      $("#modalBody").innerHTML = `
+        <div class="modal__media">${svgShoeCard({brand:p.brand,name:p.name,color:p.colorHex})}</div>
+        <div class="modal__content">
+          <div class="badges">
+            <span class="badge">${p.brand}</span>
+            <span class="badge">${p.category}</span>
+            ${p.isNew ? `<span class="badge badge--new">NEW</span>` : ``}
+            ${hasSale ? `<span class="badge badge--sale">-${p.discount}%</span>` : ``}
+          </div>
+          <h3 style="margin:0;font-size:22px;font-weight:950">${p.name}</h3>
+          <div class="muted" style="margin-top:6px">SKU: <b>${p.sku}</b> • Rating: <b>${p.rating.toFixed(1)}</b> ★</div>
+
+          <div class="hr"></div>
+
+          <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:baseline">
+            <div class="price" style="font-size:26px">${money(finalPrice(p))}
+              ${hasSale ? `<span class="old" style="font-size:13px">${money(p.price)}</span>` : ``}
+            </div>
+            <div class="muted">Colores: <b>${(p.colors||[]).join(", ")}</b></div>
+          </div>
+
+          <div class="hr"></div>
+
+          <div class="small">Elige talla (opcional):</div>
+          <div class="pills" id="sizePills">${sizes}</div>
+
+          <div class="card" style="padding:12px">
+            <div style="font-weight:950">Características</div>
+            <ul class="muted" style="margin:10px 0 0;padding-left:18px">
+              ${(p.features||[]).map(f=>`<li>${f}</li>`).join("")}
+            </ul>
+          </div>
+
+          <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+            <a class="btn btn--primary" id="modalBuy" href="${buildWhatsappLink(p)}" target="_blank" rel="noopener" style="flex:1;min-width:220px">Pedir por WhatsApp</a>
+            <button class="btn btn--ghost" data-close="1">Cerrar</button>
+          </div>
+
+          <div class="hr"></div>
+
+          <div class="card" style="padding:12px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+            <div>
+              <div style="font-weight:950">Pago por Yape (opcional)</div>
+              <div class="muted" style="font-size:12px;margin-top:6px">${YAPE_NOTE}</div>
+              <div class="muted" style="font-size:12px;margin-top:6px">Titular: <b>${YAPE_OWNER}</b></div>
+            </div>
+            ${yapeQR}
+          </div>
+
+          <div class="muted" style="font-size:12px;margin-top:10px">Si no eliges talla, el mensaje va general. Si eliges talla, se agrega al WhatsApp automáticamente.</div>
+        </div>
+      `;
+
+      const modal = $("#modal");
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden","false");
+
+      let chosenSize = null;
+      $("#sizePills").querySelectorAll(".sizeBtn").forEach(btn=>{
+        btn.addEventListener("click",()=>{
+          $("#sizePills").querySelectorAll(".sizeBtn").forEach(b=>b.classList.remove("is-active"));
+          btn.classList.add("is-active");
+          chosenSize = btn.dataset.size;
+          $("#modalBuy").href = buildWhatsappLink(p, chosenSize);
+        });
+      });
+    }
+
+    function closeModal(){
+      const modal = $("#modal");
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden","true");
+    }
+
+    function render(){
+      const base = PRODUCTS.filter(matchFilters);
+      const list = sortProducts(base);
+      $("#grid").innerHTML = list.map(productCard).join("") || `
+        <div class="card" style="grid-column:1/-1;padding:14px">
+          <b>No hay resultados.</b>
+          <div class="muted">Prueba cambiar filtros o buscar con otra palabra.</div>
+        </div>`;
+
+      const phone = WHATSAPP[state.brand] || WHATSAPP.default;
+      $("#fabWhatsapp").href = `https://wa.me/${phone}?text=${encodeURIComponent("Hola, quiero información del catálogo de calzado.")}`;
+
+      document.querySelectorAll("[data-open]").forEach(el=>{
+        el.addEventListener("click",(e)=>{
+          if(e.target && e.target.tagName === "A") return;
+          const id = el.getAttribute("data-open");
+          openModal(id);
+        });
+      });
+    }
+
+    function setBrandFromTopTabs(brand){
+      state.brand = brand;
+      $("#brandFilter").value = brand === "All" ? "All" : brand;
+      document.querySelectorAll(".segmented__btn").forEach(btn=>{
+        const is = btn.dataset.brand === brand;
+        btn.classList.toggle("is-active", is);
+        btn.setAttribute("aria-selected", is ? "true" : "false");
+      });
+      render();
+    }
+
+    function syncTopTabs(){
+      document.querySelectorAll(".segmented__btn").forEach(btn=>{
+        const is = btn.dataset.brand === state.brand;
+        btn.classList.toggle("is-active", is);
+        btn.setAttribute("aria-selected", is ? "true" : "false");
+      });
+    }
+
+    // === TESTS (no rompen la app; solo log) ===
+    function assert(cond, msg){
+      if(!cond) throw new Error(msg || "assert failed");
+    }
+    function runTests(){
+      const p = PRODUCTS[0];
+      const u1 = buildWhatsappLink(p);
+      assert(u1.includes("wa.me/51927137867"), "WhatsApp phone mismatch");
+      assert(u1.includes(encodeURIComponent(p.name)), "Missing product name in url");
+      const u2 = buildWhatsappLink(p, "41");
+      assert(u2.includes(encodeURIComponent("Talla: 41")), "Missing size in url");
+      return true;
+    }
+    try{ runTests(); console.log("[TOR HUB] tests: OK"); }catch(e){ console.warn("[TOR HUB] tests: FAIL", e); }
+
+    // Wire UI
+    renderMiniGrid();
+
+    $("#q").addEventListener("input", (e)=>{ state.q = e.target.value; render(); });
+    $("#brandFilter").addEventListener("change", (e)=>{ state.brand = e.target.value; syncTopTabs(); render(); });
+    $("#categoryFilter").addEventListener("change", (e)=>{ state.category = e.target.value; render(); });
+    $("#sizeFilter").addEventListener("change", (e)=>{ state.size = e.target.value; render(); });
+    $("#sort").addEventListener("change", (e)=>{ state.sort = e.target.value; render(); });
+
+    $("#reset").addEventListener("click", ()=>{
+      state.q=""; state.brand="Caterpillar"; state.category="All"; state.size="All"; state.sort="relevance";
+      $("#q").value=""; $("#brandFilter").value="Caterpillar"; $("#categoryFilter").value="All"; $("#sizeFilter").value="All"; $("#sort").value="relevance";
+      syncTopTabs();
+      render();
+    });
+
+    document.querySelectorAll(".segmented__btn").forEach(btn=>{
+      btn.addEventListener("click", ()=> setBrandFromTopTabs(btn.dataset.brand));
+    });
+
+    $("#modal").addEventListener("click", (e)=>{
+      if(e.target && e.target.dataset && e.target.dataset.close) closeModal();
+    });
+    document.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeModal(); });
+
+    // First render
+    syncTopTabs();
+    render();
+  </script>
 </body>
 </html>
