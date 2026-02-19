@@ -3,303 +3,462 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TOR HUB PGR | Catálogo Calzado (1 archivo)</title>
-  <meta name="description" content="Catálogo pro de calzado (Caterpillar y Columbia) en un solo archivo para GitHub Pages." />
+  <title>TOR HUB PGR | Catálogo Calzado V3</title>
+  <meta name="description" content="Catálogo virtual estilo e-commerce (Caterpillar + Columbia). WhatsApp con talla opcional + QR Yape." />
   <style>
     :root{
       --bg:#0b0f0d;
       --panel:#0f1713;
+      --panel2:#0d1411;
       --card:#101a15;
       --line:rgba(255,255,255,.08);
+      --line2:rgba(255,255,255,.12);
       --text:rgba(255,255,255,.92);
       --muted:rgba(255,255,255,.66);
+      --muted2:rgba(255,255,255,.55);
       --accent:#22c55e;
       --accent2:#f59e0b;
       --shadow: 0 14px 50px rgba(0,0,0,.45);
+      --shadow2: 0 10px 40px rgba(0,0,0,.35);
       --radius:18px;
+      --radius2:22px;
+      --max:1180px;
     }
 
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;
-      background:radial-gradient(1200px 600px at 20% 0%, rgba(34,197,94,.18), transparent 60%),
-                 radial-gradient(900px 600px at 90% 10%, rgba(245,158,11,.18), transparent 55%),
+      background:radial-gradient(1200px 600px at 18% 0%, rgba(34,197,94,.16), transparent 60%),
+                 radial-gradient(900px 600px at 90% 10%, rgba(245,158,11,.14), transparent 55%),
                  var(--bg);
       color:var(--text)
     }
     a{color:inherit;text-decoration:none}
-    .container{max-width:1180px;margin:0 auto;padding:0 18px}
+    button{font-family:inherit}
 
-    /* Topbar */
-    .topbar{position:sticky;top:0;z-index:10;background:rgba(10,14,12,.78);border-bottom:1px solid var(--line);backdrop-filter: blur(10px);}
-    .topbar__inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px;flex-wrap:wrap}
+    .container{max-width:var(--max);margin:0 auto;padding:0 18px}
+
+    /* Top notice bar */
+    .notice{background:rgba(17,26,21,.78);border-bottom:1px solid var(--line);backdrop-filter: blur(10px)}
+    .notice__inner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:8px 0}
+    .notice__item{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12px;font-weight:800;letter-spacing:.2px}
+    .dot{width:8px;height:8px;border-radius:99px;background:rgba(34,197,94,.9)}
+
+    /* Header */
+    .header{position:sticky;top:0;z-index:30;background:rgba(10,14,12,.76);backdrop-filter: blur(12px);border-bottom:1px solid var(--line)}
+    .header__row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:12px 0}
+
     .brand{display:flex;align-items:center;gap:12px}
     .brand__logo{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;
       background:linear-gradient(135deg, rgba(34,197,94,.9), rgba(245,158,11,.75));
-      color:#08110c;font-weight:900;letter-spacing:.6px;box-shadow:0 10px 30px rgba(34,197,94,.2);
+      color:#08110c;font-weight:950;letter-spacing:.7px;box-shadow:0 10px 30px rgba(34,197,94,.18);
     }
-    .brand__name{font-weight:800;letter-spacing:.3px}
+    .brand__name{font-weight:950;letter-spacing:.3px}
     .brand__sub{font-size:12px;color:var(--muted)}
 
-    .topbar__actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-    .segmented{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:rgba(255,255,255,.04)}
-    .segmented__btn{padding:10px 12px;border:0;background:transparent;color:var(--muted);cursor:pointer;font-weight:800;font-size:13px}
-    .segmented__btn.is-active{color:var(--text);background:rgba(34,197,94,.14)}
-    .pill{padding:10px 12px;border-radius:999px;border:1px solid var(--line);color:var(--text);font-weight:800;font-size:13px;background:rgba(255,255,255,.03)}
+    .search{flex:1;min-width:240px;max-width:560px;position:relative}
+    .search input{width:100%;padding:12px 44px 12px 14px;border-radius:999px;border:1px solid var(--line);
+      background:rgba(0,0,0,.26);color:var(--text);outline:none;font-weight:850}
+    .search .icon{position:absolute;right:10px;top:50%;transform:translateY(-50%);opacity:.75}
 
-    /* Hero */
-    .hero{padding:26px 0 18px}
-    .hero__inner{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:stretch}
-    @media (max-width:980px){.hero__inner{grid-template-columns:1fr}}
-
-    .kicker{display:inline-flex;gap:10px;align-items:center;font-weight:900;letter-spacing:.5px;color:rgba(245,158,11,.95);margin-bottom:10px}
-    .hero h1{margin:0 0 10px;font-size:34px;line-height:1.12}
-    .muted{color:var(--muted)}
-
-    .hero__cta{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 10px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 14px;border-radius:14px;
+    .icons{display:flex;align-items:center;gap:10px}
+    .icoBtn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 12px;border-radius:999px;
       border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);font-weight:900;cursor:pointer}
+    .icoBtn:hover{border-color:rgba(255,255,255,.18)}
+    .ico{width:18px;height:18px;display:inline-block}
+
+    /* Nav menu */
+    .nav{border-top:1px solid var(--line);background:rgba(255,255,255,.02)}
+    .nav__inner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 0}
+    .navlinks{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+    .navlinks a{font-weight:950;letter-spacing:.5px;font-size:13px;color:rgba(255,255,255,.82)}
+    .navlinks a.active{color:rgba(245,158,11,.95)}
+    .navlinks a:hover{color:rgba(255,255,255,.95)}
+
+    .pill{padding:10px 12px;border-radius:999px;border:1px solid var(--line);color:var(--text);font-weight:900;font-size:13px;background:rgba(255,255,255,.03)}
+
+    /* Hero slider */
+    .hero{padding:18px 0 10px}
+    .heroCard{border:1px solid var(--line);border-radius:var(--radius2);overflow:hidden;box-shadow:var(--shadow)}
+    .slide{position:relative;min-height:300px;display:none}
+    .slide.is-active{display:block}
+    .slide__bg{position:absolute;inset:0;background:
+      radial-gradient(900px 500px at 10% 10%, rgba(34,197,94,.20), transparent 58%),
+      radial-gradient(900px 520px at 90% 20%, rgba(245,158,11,.22), transparent 55%),
+      linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.58));
+    }
+    .slide__content{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:center;
+      padding:26px 18px}
+    @media (max-width:900px){.slide__content{grid-template-columns:1fr;min-height:320px}}
+    .kicker{display:inline-flex;gap:10px;align-items:center;font-weight:950;letter-spacing:.6px;color:rgba(245,158,11,.95);}
+    .kicker .badge{border:1px solid rgba(245,158,11,.35);background:rgba(245,158,11,.12);padding:6px 10px;border-radius:999px;font-size:12px}
+    .heroTitle{margin:10px 0 8px;font-size:40px;line-height:1.05;font-weight:980}
+    @media (max-width:520px){.heroTitle{font-size:32px}}
+    .muted{color:var(--muted)}
+    .ctaRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 14px;border-radius:14px;
+      border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);font-weight:950;cursor:pointer}
     .btn--primary{background:linear-gradient(135deg, rgba(34,197,94,.95), rgba(34,197,94,.68));border-color:transparent;color:#07100b}
-    .btn--ghost:hover{border-color:rgba(255,255,255,.18)}
-    .btn--small{padding:10px 12px;border-radius:12px;font-weight:900}
+    .btn--warn{background:linear-gradient(135deg, rgba(245,158,11,.95), rgba(245,158,11,.62));border-color:transparent;color:#140b00}
+    .btn:hover{border-color:rgba(255,255,255,.18)}
 
-    .hero__stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .stat{padding:12px 14px;border-radius:var(--radius);border:1px solid var(--line);background:rgba(255,255,255,.03);min-width:130px}
-    .stat__num{font-size:22px;font-weight:950}
-    .stat__label{font-size:12px;color:var(--muted)}
+    .heroArt{border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.18);border-radius:20px;padding:12px;display:grid;place-items:center}
+    .heroArt svg{width:100%;height:220px}
 
-    .hero__card{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      box-shadow:var(--shadow);padding:14px;display:flex;flex-direction:column;gap:12px}
-    .hero__cardTop{display:flex;gap:10px;flex-wrap:wrap}
-    .chip{display:inline-flex;align-items:center;gap:8px;font-weight:950;font-size:12px;padding:8px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
-    .chip--sale{border-color:rgba(245,158,11,.35);background:rgba(245,158,11,.12)}
-    .hero__banner{padding:14px;border-radius:16px;border:1px dashed rgba(255,255,255,.16);background:rgba(0,0,0,.15)}
-    .banner__title{font-weight:950}
-    .banner__sub{color:var(--muted);font-size:13px;margin-top:3px}
-    .hero__miniGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-    @media (max-width:520px){.hero__miniGrid{grid-template-columns:repeat(2,1fr)}}
+    .sliderDots{display:flex;gap:8px;justify-content:center;padding:10px;background:rgba(0,0,0,.18);border-top:1px solid var(--line)}
+    .dotBtn{width:10px;height:10px;border-radius:99px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.10);cursor:pointer}
+    .dotBtn.is-active{background:rgba(245,158,11,.75);border-color:rgba(245,158,11,.35)}
 
-    /* Controls */
-    .sectionHead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:18px}
-    .sectionHead h2{margin:0;font-size:26px}
-    .hint{font-size:12px;color:var(--muted)}
+    /* Layout catalog */
+    .catalog{padding:12px 0 26px}
+    .catalogHead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:10px}
+    .catalogHead h2{margin:0;font-size:26px;font-weight:980}
+    .headRight{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 
-    .controls{margin-top:14px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.03);padding:12px}
-    .search input{width:100%;padding:12px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--text);outline:none;font-weight:800}
-    .filters{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    select{padding:11px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.22);color:var(--text);outline:none;font-weight:900}
+    select{padding:11px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.22);color:var(--text);outline:none;font-weight:950}
+
+    .layout{display:grid;grid-template-columns:290px 1fr;gap:14px;margin-top:14px}
+    @media (max-width:980px){.layout{grid-template-columns:1fr}}
+
+    /* Filters panel */
+    .filters{border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.03);padding:12px;position:sticky;top:118px;align-self:start}
+    @media (max-width:980px){.filters{display:none}}
+    .filters h3{margin:0 0 10px;font-size:16px;font-weight:980}
+    .fgroup{margin-top:10px}
+    .fgroup label{display:block;font-size:12px;color:var(--muted);font-weight:900;margin-bottom:8px}
+    .chips{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{border:1px solid var(--line);background:rgba(0,0,0,.18);color:var(--text);font-weight:950;font-size:12px;padding:9px 11px;border-radius:999px;cursor:pointer}
+    .chip.is-active{border-color:rgba(34,197,94,.45);background:rgba(34,197,94,.14)}
+
+    .rangeRow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .rangeRow input{width:100%;padding:11px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--text);outline:none;font-weight:900}
+
+    .check{display:flex;align-items:center;gap:10px;margin-top:10px}
+    .check input{width:18px;height:18px}
+    .check span{font-weight:900;color:rgba(255,255,255,.84);font-size:13px}
+
+    .filters .btn{width:100%;margin-top:12px}
+
+    /* Mobile filter drawer */
+    .drawer{position:fixed;inset:0;z-index:80;display:none}
+    .drawer.is-open{display:block}
+    .drawer__overlay{position:absolute;inset:0;background:rgba(0,0,0,.66)}
+    .drawer__panel{position:absolute;right:0;top:0;height:100%;width:min(420px, 92vw);
+      background:linear-gradient(180deg, rgba(16,26,21,.98), rgba(8,12,10,.98));
+      border-left:1px solid var(--line);box-shadow:var(--shadow);padding:14px;overflow:auto}
+    .drawer__top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .drawer__top h3{margin:0;font-size:16px;font-weight:980}
 
     /* Grid */
-    .grid{margin:14px 0 26px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    @media (max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
-    @media (max-width:780px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:480px){.grid{grid-template-columns:1fr}}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    @media (max-width:1100px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:520px){.grid{grid-template-columns:1fr}}
 
     .card{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.25)}
-    .card__img{height:170px;display:grid;place-items:center;
-      background:radial-gradient(300px 200px at 30% 20%, rgba(34,197,94,.20), transparent 60%),
-                 radial-gradient(250px 200px at 80% 10%, rgba(245,158,11,.20), transparent 55%),
-                 rgba(0,0,0,.25);
+      overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.25);cursor:pointer}
+    .card:hover{border-color:rgba(255,255,255,.18)}
+    .card__img{height:190px;display:grid;place-items:center;
+      background:radial-gradient(320px 220px at 30% 20%, rgba(34,197,94,.18), transparent 62%),
+                 radial-gradient(260px 220px at 85% 10%, rgba(245,158,11,.18), transparent 58%),
+                 rgba(0,0,0,.22);
       border-bottom:1px solid var(--line)}
     .card__img svg{width:92%;height:92%}
     .card__body{padding:12px}
 
     .badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
-    .badge{font-size:11px;font-weight:950;letter-spacing:.4px;padding:6px 8px;border-radius:999px;border:1px solid var(--line);
+    .badge2{font-size:11px;font-weight:980;letter-spacing:.4px;padding:6px 8px;border-radius:999px;border:1px solid var(--line);
       background:rgba(255,255,255,.03);color:var(--muted)}
-    .badge--new{border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.12);color:rgba(255,255,255,.9)}
-    .badge--sale{border-color:rgba(245,158,11,.35);background:rgba(245,158,11,.12);color:rgba(255,255,255,.9)}
+    .badge2--new{border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.12);color:rgba(255,255,255,.9)}
+    .badge2--sale{border-color:rgba(245,158,11,.35);background:rgba(245,158,11,.12);color:rgba(255,255,255,.9)}
 
-    .card__title{margin:0;font-size:15px;font-weight:950;line-height:1.2}
-    .card__meta{margin-top:6px;color:var(--muted);font-size:12px;display:flex;gap:10px;flex-wrap:wrap}
-    .card__priceRow{display:flex;align-items:baseline;justify-content:space-between;margin-top:10px;gap:10px}
-    .price{font-weight:950;font-size:18px}
-    .price .old{font-weight:950;font-size:12px;color:rgba(255,255,255,.55);text-decoration:line-through;margin-left:6px}
-    .card__actions{display:flex;gap:10px;margin-top:10px}
-    .card__actions .btn{flex:1}
+    .title{margin:0;font-size:15px;font-weight:980;line-height:1.2}
+    .meta{margin-top:6px;color:var(--muted);font-size:12px;display:flex;gap:10px;flex-wrap:wrap}
+    .priceRow{display:flex;align-items:baseline;justify-content:space-between;margin-top:10px;gap:10px}
+    .price{font-weight:980;font-size:18px}
+    .old{font-weight:980;font-size:12px;color:rgba(255,255,255,.55);text-decoration:line-through;margin-left:6px}
 
-    /* FAB */
-    .fab{position:fixed;right:18px;bottom:18px;z-index:20;padding:12px 14px;border-radius:999px;
-      background:linear-gradient(135deg, rgba(34,197,94,.95), rgba(34,197,94,.65));
-      color:#07100b;font-weight:950;box-shadow:0 18px 55px rgba(34,197,94,.28)}
+    .actions{display:flex;gap:10px;margin-top:10px}
+    .actions .btn{flex:1;padding:11px 12px;border-radius:14px}
+
+    /* Modal PDP */
+    .modal{position:fixed;inset:0;display:none;z-index:90}
+    .modal.is-open{display:block}
+    .modal__overlay{position:absolute;inset:0;background:rgba(0,0,0,.68)}
+    .modal__panel{position:relative;max-width:1100px;margin:4vh auto 0;background:linear-gradient(180deg, rgba(16,26,21,.98), rgba(8,12,10,.98));
+      border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
+    @media (max-width:1160px){.modal__panel{margin:3vh 14px 0}}
+    .modal__close{position:absolute;top:10px;right:10px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);border-radius:12px;padding:8px 10px;cursor:pointer}
+
+    .pdp{display:grid;grid-template-columns:1.05fr .95fr}
+    @media (max-width:900px){.pdp{grid-template-columns:1fr}}
+
+    .pdp__left{border-right:1px solid var(--line);background:rgba(0,0,0,.18)}
+    @media (max-width:900px){.pdp__left{border-right:0;border-bottom:1px solid var(--line)}}
+
+    .crumbs{padding:12px 14px;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px;font-weight:850}
+    .gallery{padding:14px;display:grid;gap:10px}
+    .mainImg{border:1px solid rgba(255,255,255,.12);border-radius:20px;overflow:hidden;background:rgba(0,0,0,.18);display:grid;place-items:center}
+    .mainImg svg{width:100%;height:360px}
+    .thumbs{display:flex;gap:10px;flex-wrap:wrap}
+    .thumb{width:92px;height:72px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03);display:grid;place-items:center;cursor:pointer;opacity:.9}
+    .thumb:hover{border-color:rgba(255,255,255,.18)}
+    .thumb.is-active{border-color:rgba(245,158,11,.40);background:rgba(245,158,11,.10)}
+    .thumb svg{width:92%;height:92%}
+
+    .pdp__right{padding:16px}
+    .pdpTitle{margin:0;font-size:26px;font-weight:990;line-height:1.12}
+    .subRow{margin-top:8px;color:var(--muted);font-size:13px;display:flex;gap:12px;flex-wrap:wrap}
+    .hr{height:1px;background:var(--line);margin:14px 0}
+
+    .sizeGrid{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .sizeBtn{border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);padding:10px 12px;border-radius:12px;font-weight:980;cursor:pointer;min-width:48px;text-align:center}
+    .sizeBtn.is-active{border-color:rgba(34,197,94,.45);background:rgba(34,197,94,.14)}
+
+    .yapeBox{border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.03);padding:12px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between}
 
     /* Footer */
-    .footer{border-top:1px solid var(--line);padding:18px 0;margin-top:20px;background:rgba(255,255,255,.02)}
+    .footer{border-top:1px solid var(--line);padding:18px 0;margin-top:22px;background:rgba(255,255,255,.02)}
     .footer__inner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
-    /* Modal */
-    .modal{position:fixed;inset:0;display:none;z-index:30}
-    .modal.is-open{display:block}
-    .modal__overlay{position:absolute;inset:0;background:rgba(0,0,0,.64)}
-    .modal__panel{position:relative;max-width:980px;margin:6vh auto 0;background:linear-gradient(180deg, rgba(16,26,21,.98), rgba(8,12,10,.98));
-      border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
-    @media (max-width:1000px){.modal__panel{margin:4vh 14px 0}}
-    .modal__close{position:absolute;top:10px;right:10px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);border-radius:12px;padding:8px 10px;cursor:pointer}
-    .modal__body{display:grid;grid-template-columns:1.05fr .95fr}
-    @media (max-width:860px){.modal__body{grid-template-columns:1fr}}
-    .modal__media{min-height:320px;border-right:1px solid var(--line);display:grid;place-items:center;background:rgba(0,0,0,.18)}
-    @media (max-width:860px){.modal__media{border-right:0;border-bottom:1px solid var(--line)}}
-    .modal__content{padding:16px}
-    .pills{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
-    .pills button{border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);padding:10px 12px;border-radius:999px;font-weight:950;cursor:pointer}
-    .pills button.is-active{border-color:rgba(34,197,94,.45);background:rgba(34,197,94,.14)}
-    .small{font-size:12px;color:var(--muted)}
-    .hr{height:1px;background:var(--line);margin:12px 0}
+    /* Fab */
+    .fab{position:fixed;right:18px;bottom:18px;z-index:70;padding:12px 14px;border-radius:999px;
+      background:linear-gradient(135deg, rgba(34,197,94,.95), rgba(34,197,94,.65));
+      color:#07100b;font-weight:990;box-shadow:0 18px 55px rgba(34,197,94,.28)}
+
+    .hideDesktop{display:none}
+    @media (max-width:980px){.hideDesktop{display:inline-flex}}
+
+    .empty{grid-column:1/-1;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.03);padding:14px}
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container topbar__inner">
+
+  <!-- Notice bar -->
+  <div class="notice">
+    <div class="container notice__inner">
+      <div class="notice__item"><span class="dot"></span> Paga en cuotas (demo)</div>
+      <div class="notice__item">Envíos desde S/ 399 (demo)</div>
+      <div class="notice__item">Cambios sin costo (demo)</div>
+      <div class="notice__item">Retiro en tienda (demo)</div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__row">
       <div class="brand">
         <div class="brand__logo">TOR</div>
-        <div class="brand__text">
+        <div>
           <div class="brand__name">TOR HUB PGR</div>
-          <div class="brand__sub">Catálogo virtual • Calzado Outdoor • 1 archivo</div>
+          <div class="brand__sub">Catálogo estilo e-commerce • V3</div>
         </div>
       </div>
 
-      <div class="topbar__actions">
-        <div class="segmented" role="tablist" aria-label="Selector de marca">
-          <button class="segmented__btn is-active" data-brand="Caterpillar" role="tab" aria-selected="true">Caterpillar</button>
-          <button class="segmented__btn" data-brand="Columbia" role="tab" aria-selected="false">Columbia</button>
-          <button class="segmented__btn" data-brand="All" role="tab" aria-selected="false">Todas</button>
+      <div class="search" role="search">
+        <input id="q" type="search" placeholder="¿Qué buscas? (ej: botín, hiking, waterproof)" autocomplete="off" />
+        <span class="icon" aria-hidden="true">🔎</span>
+      </div>
+
+      <div class="icons">
+        <button class="icoBtn" type="button" title="Favoritos (demo)"><span class="ico">♡</span></button>
+        <button class="icoBtn" type="button" title="Cuenta (demo)"><span class="ico">👤</span></button>
+        <button class="icoBtn" type="button" title="Carrito (demo)"><span class="ico">🛒</span></button>
+        <button class="icoBtn hideDesktop" type="button" id="openFilters">Filtrar</button>
+      </div>
+    </div>
+
+    <div class="nav">
+      <div class="container nav__inner">
+        <div class="navlinks" id="navlinks">
+          <a href="#" data-nav="SALE" class="active">SALE</a>
+          <a href="#catalogo" data-brand="Caterpillar">CATERPILLAR</a>
+          <a href="#catalogo" data-brand="Columbia">COLUMBIA</a>
+          <a href="#catalogo" data-nav="NEW">NEW IN</a>
+          <a href="#como-subir" data-nav="BLOG">BLOG</a>
         </div>
         <a class="pill" href="#catalogo">Ver catálogo</a>
       </div>
     </div>
   </header>
 
+  <!-- Hero slider -->
   <section class="hero">
-    <div class="container hero__inner">
-      <div class="hero__copy">
-        <div class="kicker">FINAL SUMMER SALE</div>
-        <h1>Catálogo pro en 1 solo archivo (index.html) para subir fácil a GitHub</h1>
-        <p class="muted">Este archivo incluye: estilos + datos + JS. Solo subes <b>index.html</b> al repo y activas GitHub Pages.</p>
-
-        <div class="hero__cta">
-          <a class="btn btn--primary" href="#catalogo">Explorar modelos</a>
-          <a class="btn btn--ghost" href="#como-subir">Cómo subir</a>
+    <div class="container">
+      <div class="heroCard">
+        <div class="slide is-active" data-slide="0">
+          <div class="slide__bg"></div>
+          <div class="slide__content">
+            <div>
+              <div class="kicker"><span class="badge">FINAL SALE</span> Up to <b>50%</b> OFF</div>
+              <h1 class="heroTitle">Calzado outdoor con look pro</h1>
+              <p class="muted">V3 inspirado en e-commerce real: header completo, buscador central, filtros tipo tienda y ficha de producto con tallas.</p>
+              <div class="ctaRow">
+                <a class="btn btn--warn" href="#catalogo">COMPRAR</a>
+                <button class="btn" type="button" id="goCaterpillar">Ver Caterpillar</button>
+              </div>
+            </div>
+            <div class="heroArt" aria-hidden="true" id="heroArt"></div>
+          </div>
         </div>
 
-        <div class="hero__stats">
-          <div class="stat"><div class="stat__num">20</div><div class="stat__label">Modelos demo</div></div>
-          <div class="stat"><div class="stat__num">2</div><div class="stat__label">Marcas</div></div>
-          <div class="stat"><div class="stat__num">1</div><div class="stat__label">Archivo</div></div>
+        <div class="slide" data-slide="1">
+          <div class="slide__bg"></div>
+          <div class="slide__content">
+            <div>
+              <div class="kicker"><span class="badge">NUEVOS</span> Columbia Hiking</div>
+              <h1 class="heroTitle">Ligero, grip y ruta</h1>
+              <p class="muted">Selecciona talla y se arma el WhatsApp automáticamente con modelo + talla. Si no eliges talla, mensaje general.</p>
+              <div class="ctaRow">
+                <a class="btn btn--primary" href="#catalogo">Explorar</a>
+                <button class="btn" type="button" id="goColumbia">Ver Columbia</button>
+              </div>
+            </div>
+            <div class="heroArt" aria-hidden="true" id="heroArt2"></div>
+          </div>
         </div>
-      </div>
 
-      <div class="hero__card">
-        <div class="hero__cardTop">
-          <div class="chip chip--sale">Hasta -50%</div>
-          <div class="chip">Filtro • Buscador • Quick View</div>
-        </div>
-        <div class="hero__banner">
-          <div class="banner__title">Look e-commerce</div>
-          <div class="banner__sub">Caterpillar + Columbia (cambiable)</div>
-        </div>
-        <div class="hero__miniGrid" id="miniGrid"></div>
+        <div class="sliderDots" id="sliderDots" aria-label="Slider"></div>
       </div>
     </div>
   </section>
 
-  <main class="container" id="catalogo">
-    <div class="sectionHead">
+  <!-- Catalog -->
+  <main class="container catalog" id="catalogo">
+    <div class="catalogHead">
       <div>
         <h2>Catálogo</h2>
-        <p class="muted">Filtra por marca, categoría, talla, precio y busca por nombre.</p>
+        <div class="muted">Ordena y filtra como en tienda online.</div>
       </div>
-      <div class="sectionHead__right">
-        <div class="hint">Tip: click en producto → “Quick View”.</div>
-      </div>
-    </div>
-
-    <section class="controls">
-      <div class="search">
-        <input id="q" type="search" placeholder="¿Qué buscas? (ej: boot, hiking, waterproof)" autocomplete="off" />
-      </div>
-
-      <div class="filters">
-        <select id="brandFilter" aria-label="Marca">
-          <option value="All">Marca: Todas</option>
-          <option value="Caterpillar">Caterpillar</option>
-          <option value="Columbia">Columbia</option>
-        </select>
-
-        <select id="categoryFilter" aria-label="Categoría">
-          <option value="All">Categoría: Todas</option>
-          <option value="Boots">Boots</option>
-          <option value="Hiking">Hiking</option>
-          <option value="Trail">Trail</option>
-          <option value="Urban">Urban</option>
-          <option value="Sandals">Sandals</option>
-        </select>
-
-        <select id="sizeFilter" aria-label="Talla">
-          <option value="All">Talla: Todas</option>
-          <option value="39">39</option>
-          <option value="40">40</option>
-          <option value="41">41</option>
-          <option value="42">42</option>
-          <option value="43">43</option>
-          <option value="44">44</option>
-          <option value="45">45</option>
-        </select>
-
+      <div class="headRight">
         <select id="sort" aria-label="Ordenar">
-          <option value="relevance">Ordenar: Relevancia</option>
+          <option value="relevance">Ordenar por relevancia</option>
           <option value="priceAsc">Precio: Menor a mayor</option>
           <option value="priceDesc">Precio: Mayor a menor</option>
           <option value="newest">Novedades primero</option>
           <option value="discount">Mayor descuento</option>
         </select>
-
-        <button class="btn btn--ghost btn--small" id="reset">Reset</button>
+        <button class="icoBtn" type="button" id="reset">Reset</button>
       </div>
-    </section>
+    </div>
 
-    <section class="grid" id="grid" aria-live="polite"></section>
+    <div class="layout">
+      <!-- Desktop filters -->
+      <aside class="filters" aria-label="Filtros">
+        <h3>FILTRAR</h3>
 
-    <section class="faq" id="como-subir">
-      <h3>Cómo subir (solo 1 archivo)</h3>
-      <div class="card" style="padding:14px">
+        <div class="fgroup">
+          <label>Marca</label>
+          <div class="chips" id="brandChips"></div>
+        </div>
+
+        <div class="fgroup">
+          <label>Categoría</label>
+          <div class="chips" id="catChips"></div>
+        </div>
+
+        <div class="fgroup">
+          <label>Talla</label>
+          <div class="chips" id="sizeChips"></div>
+        </div>
+
+        <div class="fgroup">
+          <label>Precio (S/)</label>
+          <div class="rangeRow">
+            <input id="pmin" type="number" inputmode="numeric" placeholder="Min" />
+            <input id="pmax" type="number" inputmode="numeric" placeholder="Max" />
+          </div>
+          <div class="check">
+            <input id="onlyDiscount" type="checkbox" />
+            <span>Solo con descuento</span>
+          </div>
+        </div>
+
+        <button class="btn btn--primary" type="button" id="applyPrice">Aplicar</button>
+      </aside>
+
+      <!-- Grid -->
+      <section>
+        <div class="grid" id="grid" aria-live="polite"></div>
+      </section>
+    </div>
+
+    <section id="como-subir" style="margin-top:18px">
+      <h3 style="margin:0 0 10px;font-weight:980">Cómo subir (GitHub Pages)</h3>
+      <div class="empty">
         <ol class="muted" style="margin:0;padding-left:18px">
-          <li>En GitHub → tu repo vacío → clic <b>uploading an existing file</b> (o <b>Add file → Upload files</b>)</li>
-          <li>Sube solo este archivo: <b>index.html</b></li>
-          <li>Settings → Pages → Deploy from a branch → <b>main</b> y carpeta <b>/(root)</b></li>
-          <li>Abre tu link: <b>https://dkim1999m.github.io/catalogofootwearv1.0/</b></li>
+          <li>Sube solo <b>index.html</b> a tu repo.</li>
+          <li>Settings → Pages → Deploy from a branch → <b>main</b> y carpeta <b>/(root)</b>.</li>
+          <li>Abre tu URL de GitHub Pages.</li>
         </ol>
       </div>
     </section>
   </main>
 
-  <a class="fab" id="fabWhatsapp" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><span>WhatsApp</span></a>
+  <!-- Mobile drawer filters -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer__overlay" data-close="1"></div>
+    <div class="drawer__panel">
+      <div class="drawer__top">
+        <h3>FILTRAR</h3>
+        <button class="icoBtn" type="button" data-close="1">Cerrar</button>
+      </div>
+      <div class="hr"></div>
 
+      <div class="fgroup">
+        <label>Marca</label>
+        <div class="chips" id="brandChipsM"></div>
+      </div>
+      <div class="fgroup">
+        <label>Categoría</label>
+        <div class="chips" id="catChipsM"></div>
+      </div>
+      <div class="fgroup">
+        <label>Talla</label>
+        <div class="chips" id="sizeChipsM"></div>
+      </div>
+      <div class="fgroup">
+        <label>Precio (S/)</label>
+        <div class="rangeRow">
+          <input id="pminM" type="number" inputmode="numeric" placeholder="Min" />
+          <input id="pmaxM" type="number" inputmode="numeric" placeholder="Max" />
+        </div>
+        <div class="check">
+          <input id="onlyDiscountM" type="checkbox" />
+          <span>Solo con descuento</span>
+        </div>
+      </div>
+      <button class="btn btn--primary" type="button" id="applyPriceM">Aplicar</button>
+    </div>
+  </div>
+
+  <!-- PDP modal -->
   <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="Detalle de producto">
     <div class="modal__overlay" data-close="1"></div>
     <div class="modal__panel" role="document">
       <button class="modal__close" data-close="1" aria-label="Cerrar">✕</button>
-      <div class="modal__body" id="modalBody"></div>
+      <div id="modalBody"></div>
     </div>
   </div>
 
+  <a class="fab" id="fabWhatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+
   <footer class="footer">
     <div class="container footer__inner">
-      <div class="muted">© TOR HUB PGR • Catálogo demo • 1 archivo</div>
-      <div class="muted">Luego lo convertimos a multi-archivos y backend</div>
+      <div class="muted">© TOR HUB PGR • V3 • Demo</div>
+      <div class="muted">WhatsApp + talla opcional • Yape QR opcional</div>
     </div>
   </footer>
 
   <script>
     // === CONFIG (WHATSAPP + YAPE) ===
     const WHATSAPP = {
-      Caterpillar: "51927137867", // WhatsApp Perú: 51 + 927137867
+      Caterpillar: "51927137867", // Perú: 51 + 927137867
       Columbia: "51927137867",
       default: "51927137867"
     };
 
-    // Si quieres que salga tu QR real SIN subir imágenes, pega aquí un DataURL (base64) de tu QR.
+    // Pega aquí tu QR real (Data URL base64) si quieres mostrarlo.
     // Ejemplo: "data:image/png;base64,iVBORw0K..."
-    const YAPE_QR_DATA_URL = ""; // <- pega aquí tu QR en base64 (opcional)
+    const YAPE_QR_DATA_URL = "";
     const YAPE_OWNER = "Kim Dae";
     const YAPE_NOTE = "Pago por Yape (envía captura)";
 
@@ -328,10 +487,9 @@
       {id:"col-010",brand:"Columbia",sku:"COL-HIKE-010",name:"RidgeWalker Pro",category:"Hiking",price:599,discount:12,isNew:false,rating:4.4,colors:["Brown","Grey"],colorHex:"#a78b6d",sizes:[40,41,42,43,44,45],tags:["hiking","support","durable"],features:["Soporte estable","Tracción fuerte","Material durable (demo)","Trekking exigente"]}
     ];
 
-    // === STATE ===
-    const state = { q:"", brand:"Caterpillar", category:"All", size:"All", sort:"relevance" };
-
+    // === Helpers ===
     const $ = (sel) => document.querySelector(sel);
+    const $$ = (sel) => Array.from(document.querySelectorAll(sel));
     const money = (pen) => `S/ ${Number(pen).toFixed(2)}`;
     const finalPrice = (p) => (!p.discount || p.discount<=0) ? p.price : Math.round((p.price*(1-p.discount/100))*100)/100;
 
@@ -366,7 +524,6 @@
 
     function buildWhatsappLink(product, sizeChosen){
       const phone = WHATSAPP[product.brand] || WHATSAPP.default;
-
       const lines = [
         "Hola, quiero información / comprar:",
         `${product.brand} - ${product.name}`,
@@ -374,19 +531,45 @@
         `Código: ${product.sku}`
       ];
       if (sizeChosen) lines.splice(2, 0, `Talla: ${sizeChosen}`);
-
-      // IMPORTANTE: usar "\n" (escape) para evitar romper el string en algunos editores/pegados.
-      const msg = lines.join("\n");
+      const msg = lines.join("
+");
       return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
     }
 
+    // === State ===
+    const state = {
+      q: "",
+      brand: "All",
+      category: "All",
+      size: "All",
+      sort: "relevance",
+      pmin: "",
+      pmax: "",
+      onlyDiscount: false
+    };
+
+    const BRANDS = ["All","Caterpillar","Columbia"];
+    const CATS = ["All","Boots","Hiking","Trail","Urban","Sandals"];
+    const SIZES = ["All",39,40,41,42,43,44,45];
+
     function matchFilters(p){
       const q = state.q.trim().toLowerCase();
-      const qOk = !q || (p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q) || p.category.toLowerCase().includes(q) || (p.tags||[]).join(" ").toLowerCase().includes(q));
+      const qOk = !q || (
+        p.name.toLowerCase().includes(q) ||
+        p.brand.toLowerCase().includes(q) ||
+        p.category.toLowerCase().includes(q) ||
+        (p.tags||[]).join(" ").toLowerCase().includes(q)
+      );
       const brandOk = state.brand === "All" || p.brand === state.brand;
       const catOk = state.category === "All" || p.category === state.category;
       const sizeOk = state.size === "All" || (p.sizes||[]).includes(Number(state.size));
-      return qOk && brandOk && catOk && sizeOk;
+
+      const fp = finalPrice(p);
+      const pminOk = state.pmin === "" || fp >= Number(state.pmin);
+      const pmaxOk = state.pmax === "" || fp <= Number(state.pmax);
+      const discOk = !state.onlyDiscount || (p.discount||0) > 0;
+
+      return qOk && brandOk && catOk && sizeOk && pminOk && pmaxOk && discOk;
     }
 
     function sortProducts(list){
@@ -398,130 +581,231 @@
       return copy;
     }
 
-    function productCard(p){
+    function cardHTML(p){
       const hasSale = (p.discount||0) > 0;
       const old = hasSale ? `<span class="old">${money(p.price)}</span>` : "";
       return `
-      <article class="card" data-open="${p.id}">
-        <div class="card__img">${svgShoeCard({brand:p.brand,name:p.name,color:p.colorHex})}</div>
-        <div class="card__body">
-          <div class="badges">
-            <span class="badge">${p.brand}</span>
-            <span class="badge">${p.category}</span>
-            ${p.isNew ? `<span class="badge badge--new">NEW</span>` : ``}
-            ${hasSale ? `<span class="badge badge--sale">-${p.discount}%</span>` : ``}
+        <article class="card" data-open="${p.id}">
+          <div class="card__img">${svgShoeCard({brand:p.brand,name:p.name,color:p.colorHex})}</div>
+          <div class="card__body">
+            <div class="badges">
+              <span class="badge2">${p.brand}</span>
+              <span class="badge2">${p.category}</span>
+              ${p.isNew ? `<span class="badge2 badge2--new">NEW</span>` : ``}
+              ${hasSale ? `<span class="badge2 badge2--sale">-${p.discount}%</span>` : ``}
+            </div>
+            <h3 class="title">${p.name}</h3>
+            <div class="meta">
+              <span>SKU: <b>${p.sku}</b></span>
+              <span>Rating: <b>${p.rating.toFixed(1)}</b> ★</span>
+            </div>
+            <div class="priceRow">
+              <div class="price">${money(finalPrice(p))} ${old}</div>
+              <div class="muted" style="font-size:12px">Tallas: ${(p.sizes||[]).slice(0,4).join(" ")}…</div>
+            </div>
+            <div class="actions">
+              <button class="btn" type="button" data-open="${p.id}">Quick View</button>
+              <a class="btn btn--primary" href="${buildWhatsappLink(p)}" target="_blank" rel="noopener">Pedir</a>
+            </div>
           </div>
-          <h3 class="card__title">${p.name}</h3>
-          <div class="card__meta">
-            <span>SKU: <b>${p.sku}</b></span>
-            <span>Rating: <b>${p.rating.toFixed(1)}</b> ★</span>
-          </div>
-          <div class="card__priceRow">
-            <div class="price">${money(finalPrice(p))} ${old}</div>
-            <div class="small">${(p.sizes||[]).slice(0,5).join(" • ")}${(p.sizes||[]).length>5 ? " • ..." : ""}</div>
-          </div>
-          <div class="card__actions">
-            <button class="btn btn--ghost" data-open="${p.id}">Quick View</button>
-            <a class="btn btn--primary" href="${buildWhatsappLink(p)}" target="_blank" rel="noopener">Pedir</a>
-          </div>
-        </div>
-      </article>`;
+        </article>`;
     }
 
-    function renderMiniGrid(){
-      const list = PRODUCTS.slice(0,6);
-      $("#miniGrid").innerHTML = list.map(p=>`
-        <div class="card" style="border-radius:16px;overflow:hidden">
-          <div class="card__img" style="height:120px">${svgShoeCard({brand:p.brand,name:p.name,color:p.colorHex})}</div>
-          <div class="card__body" style="padding:10px">
-            <div class="card__title" style="font-size:12px">${p.name}</div>
-            <div class="muted" style="font-size:11px;margin-top:4px">${money(finalPrice(p))}</div>
-          </div>
-        </div>`).join("");
+    function renderChips(){
+      const make = (vals, current, onClick) => vals.map(v=>{
+        const label = String(v);
+        const active = String(current) === String(v);
+        return `<button class="chip ${active?"is-active":""}" type="button" data-val="${label}">${label==="All"?"Todas":label}</button>`;
+      }).join("");
+
+      $("#brandChips").innerHTML = make(BRANDS, state.brand);
+      $("#catChips").innerHTML = make(CATS, state.category);
+      $("#sizeChips").innerHTML = make(SIZES, state.size);
+
+      $("#brandChipsM").innerHTML = make(BRANDS, state.brand);
+      $("#catChipsM").innerHTML = make(CATS, state.category);
+      $("#sizeChipsM").innerHTML = make(SIZES, state.size);
+
+      // bind (desktop + mobile)
+      const bind = (rootSel, key) => {
+        $$(rootSel+" .chip").forEach(btn=>{
+          btn.addEventListener("click",()=>{
+            const v = btn.dataset.val;
+            state[key] = (key === "size" && v !== "All") ? Number(v) : v;
+            render();
+          });
+        });
+      };
+      bind("#brandChips","brand");
+      bind("#catChips","category");
+      bind("#sizeChips","size");
+      bind("#brandChipsM","brand");
+      bind("#catChipsM","category");
+      bind("#sizeChipsM","size");
     }
 
+    function renderGrid(){
+      const list = sortProducts(PRODUCTS.filter(matchFilters));
+      $("#grid").innerHTML = list.length
+        ? list.map(cardHTML).join("")
+        : `<div class="empty"><b>No hay resultados.</b><div class="muted">Prueba cambiar filtros o buscar con otra palabra.</div></div>`;
+
+      // bind open
+      $$('[data-open]').forEach(el=>{
+        el.addEventListener('click',(e)=>{
+          if(e.target && e.target.tagName === 'A') return;
+          const id = el.getAttribute('data-open');
+          openModal(id);
+        });
+      });
+    }
+
+    function renderFab(){
+      const phone = WHATSAPP[state.brand] || WHATSAPP.default;
+      $("#fabWhatsapp").href = `https://wa.me/${phone}?text=${encodeURIComponent("Hola, quiero información del catálogo de calzado.")}`;
+    }
+
+    function render(){
+      // sync inputs
+      $("#sort").value = state.sort;
+
+      // desktop price inputs
+      $("#pmin").value = state.pmin;
+      $("#pmax").value = state.pmax;
+      $("#onlyDiscount").checked = state.onlyDiscount;
+
+      // mobile price inputs
+      $("#pminM").value = state.pmin;
+      $("#pmaxM").value = state.pmax;
+      $("#onlyDiscountM").checked = state.onlyDiscount;
+
+      renderChips();
+      renderGrid();
+      renderFab();
+    }
+
+    // === PDP modal ===
     function openModal(productId){
       const p = PRODUCTS.find(x=>x.id===productId);
       if(!p) return;
 
       const hasSale = (p.discount||0) > 0;
-      const sizes = (p.sizes||[]).map(sz=>`<button class="sizeBtn" data-size="${sz}">${sz}</button>`).join("");
-
       const yapeQR = YAPE_QR_DATA_URL
         ? `<img src="${YAPE_QR_DATA_URL}" alt="QR Yape" style="width:220px;height:220px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.03);object-fit:cover"/>`
         : `<div style="width:220px;height:220px;border-radius:18px;border:1px dashed rgba(255,255,255,.22);display:grid;place-items:center;text-align:center;padding:14px" class="muted">
              <div>
-               <div style="font-weight:950;color:rgba(255,255,255,.85)">QR Yape (opcional)</div>
-               <div style="font-size:12px;margin-top:6px">Pega tu QR en <b>YAPE_QR_DATA_URL</b> (base64) y aparecerá aquí.</div>
+               <div style="font-weight:980;color:rgba(255,255,255,.85)">QR Yape (opcional)</div>
+               <div style="font-size:12px;margin-top:6px">Pega tu QR en <b>YAPE_QR_DATA_URL</b> (base64).</div>
              </div>
            </div>`;
 
+      const thumbs = [
+        {k:"a", c:p.colorHex},
+        {k:"b", c:(p.brand==="Caterpillar"?"#8d7b62":"#94a3b8")},
+        {k:"c", c:(p.brand==="Caterpillar"?"#6b7d4a":"#60a5fa")}
+      ];
+
       $("#modalBody").innerHTML = `
-        <div class="modal__media">${svgShoeCard({brand:p.brand,name:p.name,color:p.colorHex})}</div>
-        <div class="modal__content">
-          <div class="badges">
-            <span class="badge">${p.brand}</span>
-            <span class="badge">${p.category}</span>
-            ${p.isNew ? `<span class="badge badge--new">NEW</span>` : ``}
-            ${hasSale ? `<span class="badge badge--sale">-${p.discount}%</span>` : ``}
-          </div>
-          <h3 style="margin:0;font-size:22px;font-weight:950">${p.name}</h3>
-          <div class="muted" style="margin-top:6px">SKU: <b>${p.sku}</b> • Rating: <b>${p.rating.toFixed(1)}</b> ★</div>
-
-          <div class="hr"></div>
-
-          <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:baseline">
-            <div class="price" style="font-size:26px">${money(finalPrice(p))}
-              ${hasSale ? `<span class="old" style="font-size:13px">${money(p.price)}</span>` : ``}
+        <div class="pdp">
+          <div class="pdp__left">
+            <div class="crumbs">Inicio  ›  ${p.brand}  ›  ${p.category}  ›  ${p.name}</div>
+            <div class="gallery">
+              <div class="mainImg" id="mainImg">${svgShoeCard({brand:p.brand,name:p.name,color:p.colorHex})}</div>
+              <div class="thumbs" id="thumbs">
+                ${thumbs.map((t,i)=>`
+                  <div class="thumb ${i===0?"is-active":""}" data-color="${t.c}">
+                    ${svgShoeCard({brand:p.brand,name:p.name,color:t.c})}
+                  </div>`).join("")}
+              </div>
             </div>
-            <div class="muted">Colores: <b>${(p.colors||[]).join(", ")}</b></div>
           </div>
 
-          <div class="hr"></div>
-
-          <div class="small">Elige talla (opcional):</div>
-          <div class="pills" id="sizePills">${sizes}</div>
-
-          <div class="card" style="padding:12px">
-            <div style="font-weight:950">Características</div>
-            <ul class="muted" style="margin:10px 0 0;padding-left:18px">
-              ${(p.features||[]).map(f=>`<li>${f}</li>`).join("")}
-            </ul>
-          </div>
-
-          <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
-            <a class="btn btn--primary" id="modalBuy" href="${buildWhatsappLink(p)}" target="_blank" rel="noopener" style="flex:1;min-width:220px">Pedir por WhatsApp</a>
-            <button class="btn btn--ghost" data-close="1">Cerrar</button>
-          </div>
-
-          <div class="hr"></div>
-
-          <div class="card" style="padding:12px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between">
-            <div>
-              <div style="font-weight:950">Pago por Yape (opcional)</div>
-              <div class="muted" style="font-size:12px;margin-top:6px">${YAPE_NOTE}</div>
-              <div class="muted" style="font-size:12px;margin-top:6px">Titular: <b>${YAPE_OWNER}</b></div>
+          <div class="pdp__right">
+            <div class="badges">
+              <span class="badge2">${p.brand}</span>
+              <span class="badge2">${p.category}</span>
+              ${p.isNew ? `<span class="badge2 badge2--new">NEW</span>` : ``}
+              ${hasSale ? `<span class="badge2 badge2--sale">-${p.discount}%</span>` : ``}
             </div>
-            ${yapeQR}
-          </div>
 
-          <div class="muted" style="font-size:12px;margin-top:10px">Si no eliges talla, el mensaje va general. Si eliges talla, se agrega al WhatsApp automáticamente.</div>
+            <h3 class="pdpTitle">${p.name}</h3>
+            <div class="subRow">
+              <span>SKU: <b>${p.sku}</b></span>
+              <span>Rating: <b>${p.rating.toFixed(1)}</b> ★</span>
+              <span>Colores: <b>${(p.colors||[]).join(", ")}</b></span>
+            </div>
+
+            <div class="hr"></div>
+
+            <div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap">
+              <div class="price" style="font-size:30px">${money(finalPrice(p))}
+                ${hasSale ? `<span class="old" style="font-size:13px">${money(p.price)}</span>` : ``}
+              </div>
+              <div class="muted" style="font-weight:900">Hasta 3 cuotas (demo)</div>
+            </div>
+
+            <div class="hr"></div>
+
+            <div class="muted" style="font-size:12px;font-weight:900">Elige talla (opcional)</div>
+            <div class="sizeGrid" id="sizeGrid">
+              ${(p.sizes||[]).map(sz=>`<button class="sizeBtn" type="button" data-size="${sz}">${sz}</button>`).join("")}
+            </div>
+
+            <div class="hr"></div>
+
+            <div class="empty" style="padding:12px">
+              <div style="font-weight:980">Características</div>
+              <ul class="muted" style="margin:10px 0 0;padding-left:18px">
+                ${(p.features||[]).map(f=>`<li>${f}</li>`).join("")}
+              </ul>
+            </div>
+
+            <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+              <a class="btn btn--primary" id="modalBuy" href="${buildWhatsappLink(p)}" target="_blank" rel="noopener" style="flex:1;min-width:220px">Comprar Ahora</a>
+              <button class="btn" type="button" data-close="1">Cerrar</button>
+            </div>
+
+            <div class="hr"></div>
+
+            <div class="yapeBox">
+              <div>
+                <div style="font-weight:980">Pago por Yape (opcional)</div>
+                <div class="muted" style="font-size:12px;margin-top:6px">${YAPE_NOTE}</div>
+                <div class="muted" style="font-size:12px;margin-top:6px">Titular: <b>${YAPE_OWNER}</b></div>
+              </div>
+              ${yapeQR}
+            </div>
+
+            <div class="muted" style="font-size:12px;margin-top:10px">Si no eliges talla, el mensaje va general. Si eliges talla, se agrega al WhatsApp automáticamente.</div>
+          </div>
         </div>
       `;
 
-      const modal = $("#modal");
-      modal.classList.add("is-open");
-      modal.setAttribute("aria-hidden","false");
+      // Bind thumbs
+      const main = $("#mainImg");
+      $$("#thumbs .thumb").forEach(th=>{
+        th.addEventListener("click",()=>{
+          $$("#thumbs .thumb").forEach(t=>t.classList.remove("is-active"));
+          th.classList.add("is-active");
+          const c = th.dataset.color;
+          main.innerHTML = svgShoeCard({brand:p.brand,name:p.name,color:c});
+        });
+      });
 
+      // Bind size -> whatsapp
       let chosenSize = null;
-      $("#sizePills").querySelectorAll(".sizeBtn").forEach(btn=>{
+      $$("#sizeGrid .sizeBtn").forEach(btn=>{
         btn.addEventListener("click",()=>{
-          $("#sizePills").querySelectorAll(".sizeBtn").forEach(b=>b.classList.remove("is-active"));
+          $$("#sizeGrid .sizeBtn").forEach(b=>b.classList.remove("is-active"));
           btn.classList.add("is-active");
           chosenSize = btn.dataset.size;
           $("#modalBuy").href = buildWhatsappLink(p, chosenSize);
         });
       });
+
+      const modal = $("#modal");
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden","false");
     }
 
     function closeModal(){
@@ -530,50 +814,61 @@
       modal.setAttribute("aria-hidden","true");
     }
 
-    function render(){
-      const base = PRODUCTS.filter(matchFilters);
-      const list = sortProducts(base);
-      $("#grid").innerHTML = list.map(productCard).join("") || `
-        <div class="card" style="grid-column:1/-1;padding:14px">
-          <b>No hay resultados.</b>
-          <div class="muted">Prueba cambiar filtros o buscar con otra palabra.</div>
-        </div>`;
+    // === Slider ===
+    function setupSlider(){
+      const slides = $$(".slide");
+      const dots = $("#sliderDots");
+      let idx = 0;
 
-      const phone = WHATSAPP[state.brand] || WHATSAPP.default;
-      $("#fabWhatsapp").href = `https://wa.me/${phone}?text=${encodeURIComponent("Hola, quiero información del catálogo de calzado.")}`;
+      dots.innerHTML = slides.map((_,i)=>`<button class="dotBtn ${i===0?"is-active":""}" type="button" data-i="${i}" aria-label="slide ${i+1}"></button>`).join("");
 
-      document.querySelectorAll("[data-open]").forEach(el=>{
-        el.addEventListener("click",(e)=>{
-          if(e.target && e.target.tagName === "A") return;
-          const id = el.getAttribute("data-open");
-          openModal(id);
-        });
-      });
+      const set = (i) => {
+        idx = i;
+        slides.forEach((s,k)=>s.classList.toggle("is-active", k===idx));
+        $$(".dotBtn").forEach((d,k)=>d.classList.toggle("is-active", k===idx));
+      };
+
+      $$(".dotBtn").forEach(btn=>btn.addEventListener("click",()=>set(Number(btn.dataset.i))));
+
+      // auto
+      setInterval(()=> set((idx+1)%slides.length), 5200);
+
+      // hero art
+      const p1 = PRODUCTS.find(p=>p.brand==="Caterpillar") || PRODUCTS[0];
+      const p2 = PRODUCTS.find(p=>p.brand==="Columbia") || PRODUCTS[10];
+      $("#heroArt").innerHTML = svgShoeCard({brand:p1.brand,name:p1.name,color:p1.colorHex});
+      $("#heroArt2").innerHTML = svgShoeCard({brand:p2.brand,name:p2.name,color:p2.colorHex});
     }
 
-    function setBrandFromTopTabs(brand){
-      state.brand = brand;
-      $("#brandFilter").value = brand === "All" ? "All" : brand;
-      document.querySelectorAll(".segmented__btn").forEach(btn=>{
-        const is = btn.dataset.brand === brand;
-        btn.classList.toggle("is-active", is);
-        btn.setAttribute("aria-selected", is ? "true" : "false");
-      });
+    // === Drawer ===
+    function openDrawer(){
+      const d = $("#drawer");
+      d.classList.add("is-open");
+      d.setAttribute("aria-hidden","false");
+    }
+    function closeDrawer(){
+      const d = $("#drawer");
+      d.classList.remove("is-open");
+      d.setAttribute("aria-hidden","true");
+    }
+
+    // === Apply price (desktop + mobile) ===
+    function applyPriceFromDesktop(){
+      state.pmin = $("#pmin").value.trim();
+      state.pmax = $("#pmax").value.trim();
+      state.onlyDiscount = $("#onlyDiscount").checked;
+      render();
+    }
+    function applyPriceFromMobile(){
+      state.pmin = $("#pminM").value.trim();
+      state.pmax = $("#pmaxM").value.trim();
+      state.onlyDiscount = $("#onlyDiscountM").checked;
+      closeDrawer();
       render();
     }
 
-    function syncTopTabs(){
-      document.querySelectorAll(".segmented__btn").forEach(btn=>{
-        const is = btn.dataset.brand === state.brand;
-        btn.classList.toggle("is-active", is);
-        btn.setAttribute("aria-selected", is ? "true" : "false");
-      });
-    }
-
-    // === TESTS (no rompen la app; solo log) ===
-    function assert(cond, msg){
-      if(!cond) throw new Error(msg || "assert failed");
-    }
+    // === Tests (console) ===
+    function assert(cond, msg){ if(!cond) throw new Error(msg || "assert failed"); }
     function runTests(){
       const p = PRODUCTS[0];
       const u1 = buildWhatsappLink(p);
@@ -583,35 +878,43 @@
       assert(u2.includes(encodeURIComponent("Talla: 41")), "Missing size in url");
       return true;
     }
-    try{ runTests(); console.log("[TOR HUB] tests: OK"); }catch(e){ console.warn("[TOR HUB] tests: FAIL", e); }
+    try{ runTests(); console.log("[TOR HUB V3] tests: OK"); }catch(e){ console.warn("[TOR HUB V3] tests: FAIL", e); }
 
-    // Wire UI
-    renderMiniGrid();
+    // === Wire UI ===
+    setupSlider();
 
     $("#q").addEventListener("input", (e)=>{ state.q = e.target.value; render(); });
-    $("#brandFilter").addEventListener("change", (e)=>{ state.brand = e.target.value; syncTopTabs(); render(); });
-    $("#categoryFilter").addEventListener("change", (e)=>{ state.category = e.target.value; render(); });
-    $("#sizeFilter").addEventListener("change", (e)=>{ state.size = e.target.value; render(); });
     $("#sort").addEventListener("change", (e)=>{ state.sort = e.target.value; render(); });
 
+    $("#applyPrice").addEventListener("click", applyPriceFromDesktop);
+    $("#applyPriceM").addEventListener("click", applyPriceFromMobile);
+
+    $("#openFilters").addEventListener("click", openDrawer);
+    $("#drawer").addEventListener("click", (e)=>{ if(e.target && e.target.dataset && e.target.dataset.close) closeDrawer(); });
+
+    $("#modal").addEventListener("click", (e)=>{ if(e.target && e.target.dataset && e.target.dataset.close) closeModal(); });
+    document.addEventListener("keydown", (e)=>{ if(e.key === "Escape") { closeModal(); closeDrawer(); } });
+
     $("#reset").addEventListener("click", ()=>{
-      state.q=""; state.brand="Caterpillar"; state.category="All"; state.size="All"; state.sort="relevance";
-      $("#q").value=""; $("#brandFilter").value="Caterpillar"; $("#categoryFilter").value="All"; $("#sizeFilter").value="All"; $("#sort").value="relevance";
-      syncTopTabs();
+      state.q=""; state.brand="All"; state.category="All"; state.size="All"; state.sort="relevance"; state.pmin=""; state.pmax=""; state.onlyDiscount=false;
+      $("#q").value="";
       render();
     });
 
-    document.querySelectorAll(".segmented__btn").forEach(btn=>{
-      btn.addEventListener("click", ()=> setBrandFromTopTabs(btn.dataset.brand));
+    // nav brand shortcuts
+    $$("#navlinks [data-brand]").forEach(a=>{
+      a.addEventListener("click", (e)=>{
+        e.preventDefault();
+        state.brand = a.dataset.brand;
+        document.getElementById('catalogo').scrollIntoView({behavior:'smooth'});
+        render();
+      });
     });
 
-    $("#modal").addEventListener("click", (e)=>{
-      if(e.target && e.target.dataset && e.target.dataset.close) closeModal();
-    });
-    document.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeModal(); });
+    $("#goCaterpillar").addEventListener("click", ()=>{ state.brand = "Caterpillar"; document.getElementById('catalogo').scrollIntoView({behavior:'smooth'}); render(); });
+    $("#goColumbia").addEventListener("click", ()=>{ state.brand = "Columbia"; document.getElementById('catalogo').scrollIntoView({behavior:'smooth'}); render(); });
 
-    // First render
-    syncTopTabs();
+    // initial render
     render();
   </script>
 </body>
