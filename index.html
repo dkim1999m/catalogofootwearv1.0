@@ -6,100 +6,95 @@
   <title>Dmusso Masai</title>
   <style>
     :root{
-      --bg:#f3f4f6;
-      --panel:#ffffff;
+      --bg:#f4f6f8;
       --card:#ffffff;
       --line:rgba(15,23,42,.12);
       --text:rgba(15,23,42,.92);
       --muted:rgba(15,23,42,.62);
       --accent:#16a34a;
       --accent2:#0ea5e9;
+      --shadow:0 14px 50px rgba(2,6,23,.12);
       --radius:18px;
-      --shadow: 0 14px 50px rgba(2,6,23,.12);
-      --max:1100px;
       --wash:rgba(2,6,23,.03);
     }
 
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;background:linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.65)), var(--bg);color:var(--text)}
+    html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;background:var(--bg);color:var(--text)}
     a{color:inherit;text-decoration:none}
     button,input,select{font-family:inherit}
 
-    .container{max-width:var(--max);margin:0 auto;padding:0 16px}
+    .container{max-width:1100px;margin:0 auto;padding:0 16px}
 
-    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.76);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
     .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 0}
+
     .brand{display:flex;align-items:center;gap:10px;min-width:220px}
-    .logo{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg, rgba(255,255,255,.75), rgba(255,255,255,.35)), linear-gradient(135deg, var(--accent), rgba(2,6,23,.06));border:1px solid rgba(255,255,255,.5);box-shadow:0 10px 30px rgba(2,6,23,.10);color:rgba(2,6,23,.9);font-weight:950;letter-spacing:.6px}
-    .title{font-weight:980;letter-spacing:.2px}
+    .logo{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg, rgba(255,255,255,.85), rgba(255,255,255,.35)), linear-gradient(135deg, var(--accent), rgba(2,6,23,.06));border:1px solid rgba(255,255,255,.6);box-shadow:0 10px 30px rgba(2,6,23,.10);color:rgba(2,6,23,.88);font-weight:990;letter-spacing:.6px}
+    .title{font-weight:990;letter-spacing:.2px}
     .subtitle{font-size:12px;color:var(--muted)}
 
     .search{flex:1;min-width:220px;max-width:520px;position:relative}
-    .search input{width:100%;padding:12px 44px 12px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.72);color:var(--text);outline:none;font-weight:850;box-shadow:0 10px 40px rgba(2,6,23,.05)}
+    .search input{width:100%;padding:12px 44px 12px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.76);color:var(--text);outline:none;font-weight:850;box-shadow:0 10px 40px rgba(2,6,23,.05)}
     .search .icon{position:absolute;right:12px;top:50%;transform:translateY(-50%);opacity:.6}
 
     .toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.72);color:var(--text);font-weight:900;cursor:pointer;box-shadow:0 10px 35px rgba(2,6,23,.05)}
-    .btn--primary{background:linear-gradient(135deg, var(--accent), rgba(255,255,255,.65));border-color:rgba(2,6,23,.04);color:rgba(2,6,23,.88)}
-    .btn--ghost{background:rgba(255,255,255,.55)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.76);color:var(--text);font-weight:900;cursor:pointer;box-shadow:0 10px 35px rgba(2,6,23,.05)}
+    .btn--primary{background:linear-gradient(135deg, var(--accent), rgba(255,255,255,.86));border-color:rgba(2,6,23,.04);color:rgba(2,6,23,.88)}
+    .btn--ghost{background:rgba(255,255,255,.62)}
 
-    main{padding:16px 0 26px}
+    main{padding:14px 0 26px}
 
-    .hero{
-      margin:14px 0 10px;
-      border:1px solid var(--line);
-      border-radius:22px;
-      overflow:hidden;
-      background:
-        radial-gradient(700px 240px at 20% 10%, color-mix(in srgb, var(--accent) 26%, transparent), transparent 60%),
-        radial-gradient(700px 240px at 90% 0%, color-mix(in srgb, var(--accent2) 22%, transparent), transparent 62%),
-        rgba(255,255,255,.78);
-      box-shadow:var(--shadow);
-    }
-    .heroInner{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 14px}
-    .hero h1{margin:0;font-size:18px;font-weight:990;letter-spacing:.2px}
-    .hero p{margin:6px 0 0;color:var(--muted);font-weight:700;font-size:12.5px}
-    .pill{display:inline-flex;gap:8px;align-items:center;padding:9px 12px;border-radius:999px;border:1px solid rgba(2,6,23,.08);background:rgba(255,255,255,.72);font-weight:950}
+    /* Poster grande (simple, estable) */
+    .poster{border:1px solid var(--line);border-radius:26px;overflow:hidden;background:rgba(255,255,255,.80);box-shadow:var(--shadow);position:relative;margin:14px 0 12px}
+    .posterTop{display:flex;gap:12px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;padding:14px}
+    .posterText{max-width:760px}
+    .posterText h1{margin:0;font-size:22px;font-weight:990;letter-spacing:.2px;line-height:1.1}
+    .posterText p{margin:8px 0 0;color:var(--muted);font-weight:750;font-size:13px}
+
+    .brandTabs{display:flex;gap:10px;flex-wrap:wrap}
+    .tab{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:999px;border:1px solid rgba(2,6,23,.12);background:rgba(255,255,255,.75);font-weight:950;box-shadow:0 10px 35px rgba(2,6,23,.05);cursor:pointer}
+    .tab.active{border-color:rgba(2,6,23,.18);box-shadow:0 14px 42px rgba(2,6,23,.10)}
+    .sw{width:12px;height:12px;border-radius:999px;background:var(--sw);border:1px solid rgba(2,6,23,.16)}
+
+    .posterSlide{height:44vh;min-height:300px;max-height:520px;border-top:1px solid var(--line);background:linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.20)), var(--wash);display:grid;place-items:center;position:relative}
+    .posterSlide svg{width:100%;height:100%}
+
+    .posterNav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;border:1px solid rgba(2,6,23,.14);background:rgba(255,255,255,.92);border-radius:999px;width:42px;height:42px;display:grid;place-items:center;cursor:pointer;box-shadow:0 12px 30px rgba(2,6,23,.10)}
+    .posterPrev{left:12px}
+    .posterNext{right:12px}
+
     @media (max-width:760px){
-      .heroInner{flex-direction:column;align-items:flex-start}
+      .posterSlide{height:40vh;min-height:280px}
+      .posterText h1{font-size:20px}
     }
 
-    .filters{display:grid;grid-template-columns:1.2fr .9fr .9fr .9fr auto;gap:10px;align-items:center;margin:12px 0 14px}
+    .filters{display:grid;grid-template-columns:1fr .9fr .9fr auto;gap:10px;align-items:center;margin:12px 0 14px}
     @media (max-width:980px){
-      .filters{grid-template-columns:1fr 1fr;}
+      .filters{grid-template-columns:1fr 1fr}
       .filters .full{grid-column:1/-1}
     }
 
-    select{width:100%;padding:11px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.72);color:var(--text);outline:none;font-weight:850;box-shadow:0 10px 35px rgba(2,6,23,.04)}
+    select{width:100%;padding:11px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.76);color:var(--text);outline:none;font-weight:850;box-shadow:0 10px 35px rgba(2,6,23,.04)}
 
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
     @media (max-width:1050px){.grid{grid-template-columns:repeat(2,1fr)}}
     @media (max-width:560px){.grid{grid-template-columns:1fr}}
 
-    .card{
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      background:
-        radial-gradient(320px 220px at 20% 10%, var(--pTint), transparent 62%),
-        radial-gradient(260px 220px at 92% 4%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 60%),
-        rgba(255,255,255,.86);
-      overflow:hidden;
-      box-shadow:0 10px 35px rgba(2,6,23,.09);
-      transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
-    }
-    .card:hover{border-color:rgba(2,6,23,.16);transform:translateY(-2px);box-shadow:0 18px 50px rgba(2,6,23,.14)}
+    .card{border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.92);overflow:hidden;box-shadow:0 10px 35px rgba(2,6,23,.09);transition:transform .15s ease, box-shadow .15s ease}
+    .card:hover{transform:translateY(-2px);box-shadow:0 18px 50px rgba(2,6,23,.14)}
 
-    .img{height:190px;display:grid;place-items:center;background:linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.15)), var(--wash);border-bottom:1px solid var(--line)}
+    .img{height:190px;display:grid;place-items:center;background:linear-gradient(180deg, rgba(255,255,255,.60), rgba(255,255,255,.18)), var(--wash);border-bottom:1px solid var(--line)}
     .img svg{width:92%;height:92%}
 
     .body{padding:12px}
     .badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
-    .badge{font-size:11px;font-weight:950;letter-spacing:.3px;padding:6px 8px;border-radius:999px;border:1px solid rgba(2,6,23,.10);background:rgba(255,255,255,.68);color:var(--muted)}
-    .badge--sale{border-color:color-mix(in srgb, var(--accent2) 45%, rgba(2,6,23,.08));background:color-mix(in srgb, var(--accent2) 12%, rgba(255,255,255,.72));color:rgba(2,6,23,.86)}
-    .badge--new{border-color:color-mix(in srgb, var(--accent) 45%, rgba(2,6,23,.08));background:color-mix(in srgb, var(--accent) 12%, rgba(255,255,255,.72));color:rgba(2,6,23,.86)}
+    .badge{font-size:11px;font-weight:950;letter-spacing:.3px;padding:6px 8px;border-radius:999px;border:1px solid rgba(2,6,23,.12);background:rgba(255,255,255,.74);color:var(--muted)}
+    .badge--sale{border-color:rgba(14,165,233,.28);background:rgba(14,165,233,.10);color:rgba(2,6,23,.86)}
+    .badge--new{border-color:rgba(22,163,74,.28);background:rgba(22,163,74,.10);color:rgba(2,6,23,.86)}
 
     .name{margin:0;font-size:15px;font-weight:980;line-height:1.2}
     .meta{margin-top:6px;color:var(--muted);font-size:12px;display:flex;gap:10px;flex-wrap:wrap}
+
     .priceRow{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:10px}
     .price{font-weight:990;font-size:18px}
     .old{font-weight:900;font-size:12px;color:rgba(15,23,42,.48);text-decoration:line-through;margin-left:6px}
@@ -107,39 +102,38 @@
     .actions{display:flex;gap:10px;margin-top:10px}
     .actions .btn{flex:1}
 
-    .empty{border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.72);padding:14px;color:var(--muted);box-shadow:0 10px 35px rgba(2,6,23,.04)}
+    .empty{border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.76);padding:14px;color:var(--muted);box-shadow:0 10px 35px rgba(2,6,23,.04)}
 
+    /* Modal */
     .modal{position:fixed;inset:0;display:none;z-index:50}
     .modal.open{display:block}
     .overlay{position:absolute;inset:0;background:rgba(2,6,23,.50)}
-    .panel{position:relative;max-width:980px;margin:4vh auto 0;background:rgba(255,255,255,.92);border:1px solid rgba(2,6,23,.12);border-radius:22px;box-shadow:0 18px 60px rgba(2,6,23,.25);overflow:hidden}
+
+    .panel{position:relative;max-width:980px;margin:4vh auto 0;background:rgba(255,255,255,.96);border:1px solid rgba(2,6,23,.12);border-radius:22px;box-shadow:0 18px 60px rgba(2,6,23,.25);overflow:hidden}
     @media (max-width:1020px){.panel{margin:3vh 14px 0}}
 
-    .close{position:absolute;top:10px;right:10px;border:1px solid rgba(2,6,23,.14);background:rgba(255,255,255,.85);color:rgba(2,6,23,.85);border-radius:12px;padding:8px 10px;cursor:pointer}
+    .close{position:absolute;top:10px;right:10px;border:1px solid rgba(2,6,23,.14);background:rgba(255,255,255,.90);color:rgba(2,6,23,.85);border-radius:12px;padding:8px 10px;cursor:pointer}
 
     .pdp{display:grid;grid-template-columns:1fr 1fr}
     @media (max-width:860px){.pdp{grid-template-columns:1fr}}
 
-    .left{border-right:1px solid rgba(2,6,23,.12);background:linear-gradient(180deg, rgba(255,255,255,.60), rgba(255,255,255,.35))}
+    .left{border-right:1px solid rgba(2,6,23,.12);background:linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.35))}
     @media (max-width:860px){.left{border-right:0;border-bottom:1px solid rgba(2,6,23,.12)}}
 
     .gallery{padding:14px}
 
-    .carousel{position:relative;border:1px solid rgba(2,6,23,.12);border-radius:18px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.18))}
-    .track{display:flex;overflow:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
-    .track::-webkit-scrollbar{height:10px}
-    .track::-webkit-scrollbar-thumb{background:rgba(2,6,23,.12);border-radius:999px}
-    .slide{min-width:100%;scroll-snap-align:center;display:grid;place-items:center}
+    .carousel{position:relative;border:1px solid rgba(2,6,23,.12);border-radius:18px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,.68), rgba(255,255,255,.18))}
+    .track{display:flex;overflow:hidden}
+    .slide{min-width:100%;display:grid;place-items:center}
     .slide svg{width:100%;height:340px}
 
-    .navBtn{position:absolute;top:50%;transform:translateY(-50%);border:1px solid rgba(2,6,23,.14);background:rgba(255,255,255,.88);border-radius:999px;width:40px;height:40px;display:grid;place-items:center;cursor:pointer}
-    .navBtn:active{transform:translateY(-50%) scale(.98)}
+    .navBtn{position:absolute;top:50%;transform:translateY(-50%);border:1px solid rgba(2,6,23,.14);background:rgba(255,255,255,.92);border-radius:999px;width:40px;height:40px;display:grid;place-items:center;cursor:pointer;box-shadow:0 12px 30px rgba(2,6,23,.10)}
     .prev{left:10px}
     .next{right:10px}
 
     .dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:8px}
-    .dot{width:8px;height:8px;border-radius:999px;background:rgba(2,6,23,.18);border:1px solid rgba(255,255,255,.7)}
-    .dot.active{background:color-mix(in srgb, var(--accent) 70%, rgba(2,6,23,.18))}
+    .dot{width:8px;height:8px;border-radius:999px;background:rgba(2,6,23,.18);border:1px solid rgba(255,255,255,.7);cursor:pointer}
+    .dot.active{background:rgba(2,6,23,.42)}
 
     .right{padding:16px}
     .pname{margin:0;font-size:22px;font-weight:990;line-height:1.15}
@@ -147,14 +141,14 @@
     .hr{height:1px;background:rgba(2,6,23,.12);margin:14px 0}
 
     .sizes{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .size{border:1px solid rgba(2,6,23,.14);background:rgba(255,255,255,.80);color:rgba(2,6,23,.88);padding:10px 12px;border-radius:12px;font-weight:980;cursor:pointer;min-width:48px;text-align:center;box-shadow:0 10px 30px rgba(2,6,23,.06)}
-    .size.active{border-color:color-mix(in srgb, var(--accent) 55%, rgba(2,6,23,.14));background:color-mix(in srgb, var(--accent) 12%, rgba(255,255,255,.86))}
+    .size{border:1px solid rgba(2,6,23,.14);background:rgba(255,255,255,.84);color:rgba(2,6,23,.88);padding:10px 12px;border-radius:12px;font-weight:980;cursor:pointer;min-width:48px;text-align:center;box-shadow:0 10px 30px rgba(2,6,23,.06)}
+    .size.active{border-color:rgba(2,6,23,.22);background:rgba(2,6,23,.05)}
 
-    .yape{border:1px solid rgba(2,6,23,.12);border-radius:18px;background:rgba(255,255,255,.82);padding:12px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    .yape{border:1px solid rgba(2,6,23,.12);border-radius:18px;background:rgba(255,255,255,.86);padding:12px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between}
     .yape img{width:210px;height:210px;border-radius:16px;border:1px solid rgba(2,6,23,.12);object-fit:cover;background:rgba(255,255,255,.65)}
     .yape .ph{width:210px;height:210px;border-radius:16px;border:1px dashed rgba(2,6,23,.22);display:grid;place-items:center;text-align:center;color:var(--muted);padding:12px;background:rgba(255,255,255,.55)}
 
-    .fab{position:fixed;right:18px;bottom:18px;z-index:25;padding:12px 14px;border-radius:999px;background:linear-gradient(135deg, var(--accent), rgba(255,255,255,.85));color:rgba(2,6,23,.86);font-weight:990;box-shadow:0 18px 55px color-mix(in srgb, var(--accent) 18%, rgba(2,6,23,.10))}
+    .fab{position:fixed;right:18px;bottom:18px;z-index:25;padding:12px 14px;border-radius:999px;background:linear-gradient(135deg, var(--accent), rgba(255,255,255,.86));color:rgba(2,6,23,.86);font-weight:990;box-shadow:0 18px 55px rgba(2,6,23,.12)}
   </style>
 </head>
 <body>
@@ -175,6 +169,7 @@
     </div>
 
     <div class="toolbar">
+      <button class="btn btn--ghost" type="button" id="home">Inicio</button>
       <button class="btn btn--ghost" type="button" id="reset">Reset</button>
     </div>
   </div>
@@ -182,25 +177,28 @@
 
 <main class="container">
 
-  <section class="hero" aria-label="Resumen">
-    <div class="heroInner">
-      <div>
-        <h1 id="heroTitle">Catálogo general</h1>
-        <p id="heroSub">Explora modelos por marca, talla y categoría.</p>
+  <section class="poster" aria-label="Poster principal">
+    <div class="posterTop">
+      <div class="posterText">
+        <h1 id="posterTitle">Catálogo general</h1>
+        <p id="posterSub">Explora modelos por marca, talla y categoría.</p>
       </div>
-      <div class="pill" id="pill">🧭 General</div>
+
+      <div class="brandTabs" aria-label="Marcas">
+        <button class="tab active" type="button" data-brand="All"><span class="sw" style="--sw:#16a34a"></span>General</button>
+        <button class="tab" type="button" data-brand="Caterpillar"><span class="sw" style="--sw:#f4b400"></span>Caterpillar</button>
+        <button class="tab" type="button" data-brand="Columbia"><span class="sw" style="--sw:#38bdf8"></span>Columbia</button>
+      </div>
     </div>
+
+    <div class="posterSlide" id="posterSlide"></div>
+
+    <button class="posterNav posterPrev" type="button" id="posterPrev" aria-label="Anterior">‹</button>
+    <button class="posterNav posterNext" type="button" id="posterNext" aria-label="Siguiente">›</button>
   </section>
 
   <div class="filters">
     <div class="full">
-      <select id="brand">
-        <option value="All">Marca: General</option>
-        <option value="Caterpillar">Caterpillar</option>
-        <option value="Columbia">Columbia</option>
-      </select>
-    </div>
-    <div>
       <select id="cat">
         <option value="All">Categoría: Todas</option>
         <option value="Boots">Boots</option>
@@ -210,6 +208,7 @@
         <option value="Sandals">Sandals</option>
       </select>
     </div>
+
     <div>
       <select id="size">
         <option value="All">Talla: Todas</option>
@@ -222,6 +221,7 @@
         <option value="45">45</option>
       </select>
     </div>
+
     <div>
       <select id="sort">
         <option value="relevance">Ordenar: Relevancia</option>
@@ -231,13 +231,13 @@
         <option value="discount">Mayor descuento</option>
       </select>
     </div>
+
     <div>
       <button class="btn btn--primary" type="button" id="apply">Aplicar</button>
     </div>
   </div>
 
   <div class="grid" id="grid" aria-live="polite"></div>
-
 </main>
 
 <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="Detalle de producto">
@@ -251,366 +251,652 @@
 <a class="fab" id="fab" href="#" target="_blank" rel="noopener">WhatsApp</a>
 
 <script>
-  const WHATSAPP = {
+  var WHATSAPP = {
     Caterpillar: "51927137867",
     Columbia: "51927137867",
-    default: "51927137867"
+    "default": "51927137867"
   };
 
-  const BRAND_THEME = {
-    All:   { bg: "#f3f4f6", accent: "#16a34a", accent2: "#0ea5e9", wash: "rgba(2,6,23,.03)", title:"Catálogo general", pill:"🧭 General" },
-    Caterpillar: { bg: "#fff7d6", accent: "#f4b400", accent2: "#f59e0b", wash: "rgba(245,158,11,.07)", title:"Caterpillar", pill:"🟨 Caterpillar" },
-    Columbia: { bg: "#e8f5ff", accent: "#38bdf8", accent2: "#0ea5e9", wash: "rgba(14,165,233,.07)", title:"Columbia", pill:"🟦 Columbia" }
+  var BRAND_THEME = {
+    All:         { bg: "#f4f6f8", accent: "#16a34a", accent2: "#0ea5e9", wash: "rgba(2,6,23,.03)", title:"Catálogo general" },
+    Caterpillar: { bg: "#fff7d6", accent: "#f4b400", accent2: "#f59e0b", wash: "rgba(245,158,11,.08)", title:"Caterpillar" },
+    Columbia:    { bg: "#e8f5ff", accent: "#38bdf8", accent2: "#0ea5e9", wash: "rgba(14,165,233,.08)", title:"Columbia" }
   };
 
-  const YAPE_QR_DATA_URL = "";
-  const YAPE_OWNER = "";
+  var YAPE_QR_DATA_URL = "";
+  var YAPE_OWNER = "";
 
-  const PRODUCTS = [
+  var PRODUCTS = [
     {id:"cat-001",brand:"Caterpillar",sku:"CAT-BOOT-001",name:"Boot TerraShield WP",category:"Boots",price:699,discount:20,isNew:true,rating:4.7,colorHex:"#d4a25b",sizes:[39,40,41,42,43,44,45]},
     {id:"cat-002",brand:"Caterpillar",sku:"CAT-BOOT-002",name:"RuggedForge 6\" Leather",category:"Boots",price:749,discount:0,isNew:false,rating:4.5,colorHex:"#9c6a3a",sizes:[40,41,42,43,44]},
     {id:"cat-003",brand:"Caterpillar",sku:"CAT-HIKE-003",name:"HikeCore Traverse",category:"Hiking",price:639,discount:15,isNew:true,rating:4.6,colorHex:"#6b7d4a",sizes:[39,40,41,42,43,44]},
     {id:"cat-004",brand:"Caterpillar",sku:"CAT-TRAIL-004",name:"TrailBurst GTX Style",category:"Trail",price:579,discount:10,isNew:false,rating:4.3,colorHex:"#7c848c",sizes:[40,41,42,43]},
     {id:"cat-005",brand:"Caterpillar",sku:"CAT-URB-005",name:"UrbanSteel Low",category:"Urban",price:529,discount:0,isNew:true,rating:4.4,colorHex:"#8d7b62",sizes:[39,40,41,42,43]},
-    {id:"cat-006",brand:"Caterpillar",sku:"CAT-BOOT-006",name:"IronPath 8\" Pro",category:"Boots",price:799,discount:25,isNew:false,rating:4.8,colorHex:"#c98b3b",sizes:[41,42,43,44,45]},
-    {id:"cat-007",brand:"Caterpillar",sku:"CAT-HIKE-007",name:"SummitLine Mid",category:"Hiking",price:669,discount:0,isNew:false,rating:4.2,colorHex:"#7c5a3a",sizes:[39,40,41,42,43,44]},
-    {id:"cat-008",brand:"Caterpillar",sku:"CAT-TRAIL-008",name:"RapidTread Runner",category:"Trail",price:499,discount:5,isNew:true,rating:4.1,colorHex:"#9aa0a6",sizes:[39,40,41,42,43]},
-    {id:"cat-009",brand:"Caterpillar",sku:"CAT-URB-009",name:"ConcreteCraft Sneaker",category:"Urban",price:459,discount:12,isNew:false,rating:4.0,colorHex:"#b09a7a",sizes:[40,41,42,43,44]},
-    {id:"cat-010",brand:"Caterpillar",sku:"CAT-SAND-010",name:"VentTrail Sandal",category:"Sandals",price:329,discount:0,isNew:true,rating:4.3,colorHex:"#6b7280",sizes:[39,40,41,42,43,44]},
 
     {id:"col-001",brand:"Columbia",sku:"COL-HIKE-001",name:"PeakVista Waterproof",category:"Hiking",price:589,discount:18,isNew:true,rating:4.6,colorHex:"#8ab4f8",sizes:[39,40,41,42,43,44]},
     {id:"col-002",brand:"Columbia",sku:"COL-TRAIL-002",name:"TrailNova Grip",category:"Trail",price:519,discount:0,isNew:false,rating:4.4,colorHex:"#94a3b8",sizes:[40,41,42,43]},
     {id:"col-003",brand:"Columbia",sku:"COL-URB-003",name:"CityRidge Sneaker",category:"Urban",price:449,discount:10,isNew:true,rating:4.2,colorHex:"#cbd5e1",sizes:[39,40,41,42,43]},
     {id:"col-004",brand:"Columbia",sku:"COL-BOOT-004",name:"StormHaven Mid",category:"Boots",price:679,discount:22,isNew:false,rating:4.7,colorHex:"#8b5a2b",sizes:[41,42,43,44,45]},
-    {id:"col-005",brand:"Columbia",sku:"COL-HIKE-005",name:"AlpineStep Vent",category:"Hiking",price:539,discount:0,isNew:false,rating:4.1,colorHex:"#7a8f58",sizes:[39,40,41,42,43,44]},
-    {id:"col-006",brand:"Columbia",sku:"COL-TRAIL-006",name:"TerraFlow Runner",category:"Trail",price:489,discount:8,isNew:true,rating:4.3,colorHex:"#60a5fa",sizes:[39,40,41,42,43]},
-    {id:"col-007",brand:"Columbia",sku:"COL-URB-007",name:"MetroPeak Low",category:"Urban",price:469,discount:0,isNew:false,rating:4.0,colorHex:"#9ca3af",sizes:[40,41,42,43,44]},
-    {id:"col-008",brand:"Columbia",sku:"COL-BOOT-008",name:"SummitGuard 6\"",category:"Boots",price:699,discount:15,isNew:true,rating:4.5,colorHex:"#a3a3a3",sizes:[41,42,43,44]},
-    {id:"col-009",brand:"Columbia",sku:"COL-SAND-009",name:"CoastLine Sandal",category:"Sandals",price:299,discount:0,isNew:true,rating:4.2,colorHex:"#64748b",sizes:[39,40,41,42,43,44]},
-    {id:"col-010",brand:"Columbia",sku:"COL-HIKE-010",name:"RidgeWalker Pro",category:"Hiking",price:599,discount:12,isNew:false,rating:4.4,colorHex:"#a78b6d",sizes:[40,41,42,43,44,45]}
+    {id:"col-005",brand:"Columbia",sku:"COL-HIKE-005",name:"AlpineStep Vent",category:"Hiking",price:539,discount:0,isNew:false,rating:4.1,colorHex:"#7a8f58",sizes:[39,40,41,42,43,44]}
   ];
 
-  const $ = (s)=>document.querySelector(s);
-  const $$ = (s)=>Array.from(document.querySelectorAll(s));
-  const money = (n)=>`S/ ${Number(n).toFixed(2)}`;
-  const finalPrice = (p)=> (p.discount>0 ? Math.round((p.price*(1-p.discount/100))*100)/100 : p.price);
+  function $(id){ return document.getElementById(id); }
+  function money(n){ return "S/ " + Number(n).toFixed(2); }
+  function finalPrice(p){ return p.discount>0 ? Math.round((p.price*(1-p.discount/100))*100)/100 : p.price; }
 
-  function tintFromHex(hex, alpha){
-    const h = (hex||"#94a3b8").replace("#","");
-    const r = parseInt(h.slice(0,2),16);
-    const g = parseInt(h.slice(2,4),16);
-    const b = parseInt(h.slice(4,6),16);
-    return `rgba(${r},${g},${b},${alpha})`;
+  function svgHero(brand, variant){
+    var accent = (brand === "Caterpillar") ? "#f4b400" : (brand === "Columbia" ? "#38bdf8" : "#16a34a");
+    var title = (brand === "All") ? "Catálogo general" : brand;
+    var v = Number(variant||0);
+    var waves = [
+      "M160 360 C260 250, 340 220, 470 220 C590 220, 660 275, 740 290 C840 308, 920 280, 1040 280 C1110 280, 1140 320, 1140 360 C1140 410, 1100 440, 1040 460 C940 495, 840 510, 690 510 C540 510, 380 495, 260 470 C190 455, 125 420, 160 360 Z",
+      "M150 370 C240 250, 340 210, 460 220 C590 230, 660 300, 760 290 C870 278, 930 250, 1045 260 C1130 268, 1150 320, 1140 370 C1130 445, 1050 475, 900 500 C760 525, 560 520, 380 495 C250 475, 135 440, 150 370 Z",
+      "M175 350 C260 245, 360 210, 500 220 C650 232, 690 305, 790 300 C900 295, 980 252, 1060 270 C1135 286, 1155 325, 1140 360 C1110 430, 1030 470, 880 500 C740 528, 520 522, 350 490 C240 468, 150 420, 175 350 Z"
+    ];
+
+    var wavePath = waves[v % waves.length];
+
+    return "<svg viewBox=\"0 0 1200 600\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\""+title+"\">"+
+      "<defs><linearGradient id=\"hg\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">"+
+      "<stop offset=\"0\" stop-color=\""+accent+"\" stop-opacity=\".24\"/>"+
+      "<stop offset=\"1\" stop-color=\"#000\" stop-opacity=\"0\"/></linearGradient></defs>"+
+      "<rect width=\"1200\" height=\"600\" rx=\"36\" fill=\"url(#hg)\"/>"+
+      "<path d=\""+wavePath+"\" fill=\"rgba(255,255,255,.85)\" stroke=\"rgba(255,255,255,.55)\" stroke-width=\"6\"/>"+
+      "<text x=\"64\" y=\"110\" fill=\"rgba(15,23,42,.84)\" font-size=\"48\" font-weight=\"950\">"+title+"</text>"+
+      "<text x=\"64\" y=\"156\" fill=\"rgba(15,23,42,.62)\" font-size=\"22\" font-weight=\"800\">Dmusso Masai</text>"+
+      "<text x=\"64\" y=\"196\" fill=\"rgba(15,23,42,.60)\" font-size=\"16\" font-weight=\"800\">Mejor experiencia de encontrar algo bueno</text>"+
+    "</svg>";
   }
 
-  function svgShoeVariant(brand,name,color,variant){
-    const accent = brand === "Caterpillar" ? "#f4b400" : (brand === "Columbia" ? "#38bdf8" : "#16a34a");
-    const base = color || "#cbd5e1";
-    const a = variant === 1 ? .24 : (variant === 2 ? .18 : .22);
-    const shift = variant === 1 ? 18 : (variant === 2 ? -14 : 0);
-    return `
-    <svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${name}">
-      <defs>
-        <linearGradient id="g${variant}" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="${accent}" stop-opacity="${a}"/>
-          <stop offset="1" stop-color="#000" stop-opacity="0"/>
-        </linearGradient>
-        <filter id="s${variant}" x="-20%" y="-20%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000" flood-opacity=".15"/>
-        </filter>
-      </defs>
-      <rect x="0" y="0" width="900" height="520" rx="28" fill="url(#g${variant})"/>
-      <text x="40" y="70" fill="rgba(15,23,42,.75)" font-size="34" font-weight="900" letter-spacing="2">${brand}</text>
-      <path filter="url(#s${variant})"
-        d="M140 318 C200 250, 250 220, 340 220 C420 220, 470 258, 530 268 C590 278, 650 260, 720 260 C760 260, 790 284, 790 318 C790 350, 770 372, 740 382 C680 402, 600 416, 470 416 C360 416, 270 410, 210 392 C160 376, 120 352, 140 318 Z"
-        transform="translate(${shift} 0)"
-        fill="${base}" stroke="rgba(255,255,255,.65)" stroke-width="6" />
-      <path
-        d="M170 356 C250 392, 360 400, 470 400 C600 400, 680 388, 740 370 C760 364, 776 354, 786 340 L786 360 C772 386, 748 400, 720 410 C660 432, 590 446, 470 448 C350 448, 260 440, 200 424 C168 414, 138 396, 122 372 L122 350 C132 360, 150 370, 170 356 Z"
-        transform="translate(${shift} 0)"
-        fill="rgba(15,23,42,.55)" />
-      <circle cx="330" cy="290" r="12" fill="rgba(255,255,255,.55)"/>
-      <circle cx="370" cy="286" r="12" fill="rgba(255,255,255,.50)"/>
-      <circle cx="410" cy="286" r="12" fill="rgba(255,255,255,.46)"/>
-      <text x="40" y="480" fill="rgba(15,23,42,.62)" font-size="22" font-weight="800">${name}</text>
-    </svg>`;
+  function svgShoe(brand, name, color){
+    var accent = (brand === "Caterpillar") ? "#f4b400" : (brand === "Columbia" ? "#38bdf8" : "#16a34a");
+    var base = color || "#cbd5e1";
+    return "<svg viewBox=\"0 0 900 520\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\""+name+"\">"+
+      "<defs><linearGradient id=\"g\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">"+
+      "<stop offset=\"0\" stop-color=\""+accent+"\" stop-opacity=\".22\"/>"+
+      "<stop offset=\"1\" stop-color=\"#000\" stop-opacity=\"0\"/></linearGradient></defs>"+
+      "<rect x=\"0\" y=\"0\" width=\"900\" height=\"520\" rx=\"28\" fill=\"url(#g)\"/>"+
+      "<text x=\"40\" y=\"70\" fill=\"rgba(15,23,42,.75)\" font-size=\"34\" font-weight=\"900\" letter-spacing=\"2\">"+brand+"</text>"+
+      "<path d=\"M140 318 C200 250, 250 220, 340 220 C420 220, 470 258, 530 268 C590 278, 650 260, 720 260 C760 260, 790 284, 790 318 C790 350, 770 372, 740 382 C680 402, 600 416, 470 416 C360 416, 270 410, 210 392 C160 376, 120 352, 140 318 Z\" fill=\""+base+"\" stroke=\"rgba(255,255,255,.65)\" stroke-width=\"6\"/>"+
+      "<path d=\"M170 356 C250 392, 360 400, 470 400 C600 400, 680 388, 740 370 C760 364, 776 354, 786 340 L786 360 C772 386, 748 400, 720 410 C660 432, 590 446, 470 448 C350 448, 260 440, 200 424 C168 414, 138 396, 122 372 L122 350 C132 360, 150 370, 170 356 Z\" fill=\"rgba(15,23,42,.55)\"/>"+
+      "<text x=\"40\" y=\"480\" fill=\"rgba(15,23,42,.62)\" font-size=\"22\" font-weight=\"800\">"+name+"</text>"+
+    "</svg>";
   }
 
   function waLink(product, size){
-    const phone = WHATSAPP[product.brand] || WHATSAPP.default;
-    const lines = [
+    var phone = WHATSAPP[product.brand] || WHATSAPP["default"];
+    var lines = [
       "Hola, quiero información / comprar:",
-      `${product.brand} - ${product.name}`,
-      `Código: ${product.sku}`,
-      `Precio: ${money(finalPrice(product))}`
+      product.brand + " - " + product.name,
+      "Código: " + product.sku,
+      "Precio: " + money(finalPrice(product))
     ];
-    if(size) lines.splice(3,0,`Talla: ${size}`);
-    const msg = lines.join("
-");
-    return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+    if(size){ lines.splice(3,0,"Talla: " + size); }
+    var msg = lines.join("\n");
+    return "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg);
   }
 
-  const state = { q:"", brand:"All", cat:"All", size:"All", sort:"relevance" };
+  var state = { q:"", brand:"All", cat:"All", size:"All", sort:"relevance" };
+
+  // Poster: SOLO mueve el poster (no cambia filtros ni re-renderiza todo)
+  var posterIdx = 0;
+  var posterTimer = null;
+
+  function ensurePosterCanvas(){
+    var host = $("posterSlide");
+    if(!host) return null;
+    var c = host.querySelector("canvas");
+    if(!c){
+      c = document.createElement("canvas");
+      c.style.position = "absolute";
+      c.style.inset = "0";
+      c.style.width = "100%";
+      c.style.height = "100%";
+      c.style.pointerEvents = "none";
+      c.style.opacity = "1";
+      host.appendChild(c);
+    }
+    return c;
+  }
+
+  function playEffect(kind){
+    var host = $("posterSlide");
+    if(!host) return;
+    var c = ensurePosterCanvas();
+    if(!c) return;
+    var ctx = c.getContext("2d");
+
+    function resize(){
+      var r = host.getBoundingClientRect();
+      c.width = Math.max(1, Math.floor(r.width * (window.devicePixelRatio||1)));
+      c.height = Math.max(1, Math.floor(r.height * (window.devicePixelRatio||1)));
+      ctx.setTransform((window.devicePixelRatio||1),0,0,(window.devicePixelRatio||1),0,0);
+    }
+    resize();
+
+    var t0 = performance.now();
+    var dur = 1200;
+    var parts = [];
+
+    if(kind === "sparks"){
+      for(var i=0;i<70;i++){
+        parts.push({
+          x: 60 + Math.random()*220,
+          y: 260 + Math.random()*160,
+          vx: 1.2 + Math.random()*3.2,
+          vy: -2.0 - Math.random()*3.5,
+          life: 350 + Math.random()*700,
+          r: 1 + Math.random()*2
+        });
+      }
+    }else if(kind === "rain"){
+      for(var j=0;j<90;j++){
+        parts.push({
+          x: Math.random()*host.clientWidth,
+          y: -20 - Math.random()*host.clientHeight,
+          vy: 7 + Math.random()*10,
+          life: 600 + Math.random()*900
+        });
+      }
+    }else{
+      for(var k=0;k<50;k++){
+        parts.push({
+          x: Math.random()*host.clientWidth,
+          y: host.clientHeight + 20 + Math.random()*80,
+          vy: -2.5 - Math.random()*4.5,
+          life: 500 + Math.random()*900
+        });
+      }
+    }
+
+    function frame(now){
+      var dt = now - t0;
+      ctx.clearRect(0,0,host.clientWidth,host.clientHeight);
+
+      var alpha = 1 - Math.min(1, dt/dur);
+
+      if(kind === "sparks"){
+        ctx.globalAlpha = 0.9 * alpha;
+        ctx.fillStyle = "rgba(245,158,11,.95)";
+        for(var i=0;i<parts.length;i++){
+          var p = parts[i];
+          p.x += p.vx; p.y += p.vy; p.vy += 0.12;
+          ctx.beginPath();
+          ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+          ctx.fill();
+        }
+      } else if(kind === "rain"){
+        ctx.globalAlpha = 0.55 * alpha;
+        ctx.strokeStyle = "rgba(14,165,233,.9)";
+        ctx.lineWidth = 2;
+        for(var j=0;j<parts.length;j++){
+          var d = parts[j];
+          d.y += d.vy;
+          if(d.y > host.clientHeight + 40){ d.y = -40; d.x = Math.random()*host.clientWidth; }
+          ctx.beginPath();
+          ctx.moveTo(d.x,d.y);
+          ctx.lineTo(d.x+6,d.y+18);
+          ctx.stroke();
+        }
+      } else {
+        ctx.globalAlpha = 0.35 * alpha;
+        ctx.fillStyle = "rgba(34,197,94,.9)";
+        for(var k=0;k<parts.length;k++){
+          var b = parts[k];
+          b.y += b.vy;
+          ctx.beginPath();
+          ctx.arc(b.x,b.y,2+Math.random()*2,0,Math.PI*2);
+          ctx.fill();
+        }
+      }
+
+      ctx.globalAlpha = 1;
+
+      if(dt < dur) requestAnimationFrame(frame);
+      else ctx.clearRect(0,0,host.clientWidth,host.clientHeight);
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  function renderPoster(){
+    var host = $("posterSlide");
+    if(!host) return;
+
+    // mantener solo 1 SVG (reemplaza) + canvas overlay (efecto)
+    var svg = svgHero(state.brand, posterIdx);
+    host.innerHTML = svg;
+    ensurePosterCanvas();
+  }
+
+  function posterGo(dir){
+    posterIdx = (posterIdx + dir + 3) % 3;
+    renderPoster();
+  }
+
+  function posterStart(){
+    if(posterTimer) clearInterval(posterTimer);
+    posterTimer = setInterval(function(){
+      posterIdx = (posterIdx + 1) % 3;
+      renderPoster();
+    }, 4200);
+  }
 
   function applyTheme(){
-    const key = state.brand in BRAND_THEME ? state.brand : "All";
-    const t = BRAND_THEME[key];
+    var t = BRAND_THEME[state.brand] || BRAND_THEME.All;
     document.documentElement.style.setProperty("--bg", t.bg);
     document.documentElement.style.setProperty("--accent", t.accent);
     document.documentElement.style.setProperty("--accent2", t.accent2);
     document.documentElement.style.setProperty("--wash", t.wash);
-    $("#heroTitle").textContent = t.title;
-    $("#pill").textContent = t.pill;
+
+    $("posterTitle").textContent = t.title;
+
+    var tabs = document.querySelectorAll(".tab");
+    for(var i=0;i<tabs.length;i++) tabs[i].classList.remove("active");
+    var active = document.querySelector('.tab[data-brand="'+state.brand+'"]');
+    if(active) active.classList.add("active");
+
+    renderPoster();
   }
 
   function passes(p){
-    const q = state.q.trim().toLowerCase();
-    const qOk = !q || (p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q) || p.category.toLowerCase().includes(q) || p.sku.toLowerCase().includes(q));
-    const bOk = state.brand==="All" || p.brand===state.brand;
-    const cOk = state.cat==="All" || p.category===state.cat;
-    const sOk = state.size==="All" || (p.sizes||[]).includes(Number(state.size));
+    var q = (state.q || "").trim().toLowerCase();
+    var qOk = (!q) || (p.name.toLowerCase().indexOf(q) >= 0 || p.brand.toLowerCase().indexOf(q) >= 0 || p.category.toLowerCase().indexOf(q) >= 0 || p.sku.toLowerCase().indexOf(q) >= 0);
+    var bOk = (state.brand === "All") || (p.brand === state.brand);
+    var cOk = (state.cat === "All") || (p.category === state.cat);
+    var sOk = (state.size === "All") || ((p.sizes||[]).indexOf(Number(state.size)) >= 0);
     return qOk && bOk && cOk && sOk;
   }
 
   function sortList(list){
-    const arr = [...list];
-    if(state.sort==="priceAsc") arr.sort((a,b)=>finalPrice(a)-finalPrice(b));
-    if(state.sort==="priceDesc") arr.sort((a,b)=>finalPrice(b)-finalPrice(a));
-    if(state.sort==="newest") arr.sort((a,b)=>(b.isNew?1:0)-(a.isNew?1:0));
-    if(state.sort==="discount") arr.sort((a,b)=>(b.discount||0)-(a.discount||0));
+    var arr = list.slice();
+    if(state.sort === "priceAsc") arr.sort(function(a,b){return finalPrice(a)-finalPrice(b)});
+    if(state.sort === "priceDesc") arr.sort(function(a,b){return finalPrice(b)-finalPrice(a)});
+    if(state.sort === "newest") arr.sort(function(a,b){return (b.isNew?1:0)-(a.isNew?1:0)});
+    if(state.sort === "discount") arr.sort(function(a,b){return (b.discount||0)-(a.discount||0)});
     return arr;
   }
 
-  function card(p){
-    const sale = (p.discount||0)>0;
-    const old = sale ? `<span class="old">${money(p.price)}</span>` : "";
-    const tint = tintFromHex(p.colorHex, .18);
-    return `
-      <article class="card" style="--pTint:${tint}" data-open="${p.id}">
-        <div class="img">${svgShoeVariant(p.brand,p.name,p.colorHex,0)}</div>
-        <div class="body">
-          <div class="badges">
-            <span class="badge">${p.brand}</span>
-            <span class="badge">${p.category}</span>
-            ${p.isNew?`<span class="badge badge--new">NEW</span>`:""}
-            ${sale?`<span class="badge badge--sale">-${p.discount}%</span>`:""}
-          </div>
-          <h3 class="name">${p.name}</h3>
-          <div class="meta">
-            <span>SKU: <b>${p.sku}</b></span>
-            <span>★ <b>${p.rating.toFixed(1)}</b></span>
-          </div>
-          <div class="priceRow">
-            <div class="price">${money(finalPrice(p))} ${old}</div>
-            <div class="meta">Tallas: <b>${(p.sizes||[]).slice(0,4).join(" ")}</b>…</div>
-          </div>
-          <div class="actions">
-            <button class="btn" type="button" data-open="${p.id}">Ver</button>
-            <a class="btn btn--primary" href="${waLink(p)}" target="_blank" rel="noopener">WhatsApp</a>
-          </div>
-        </div>
-      </article>`;
+  function el(tag, cls){
+    var n = document.createElement(tag);
+    if(cls) n.className = cls;
+    return n;
+  }
+
+  function renderGrid(){
+    var list = [];
+    for(var i=0;i<PRODUCTS.length;i++) if(passes(PRODUCTS[i])) list.push(PRODUCTS[i]);
+    list = sortList(list);
+
+    var grid = $("grid");
+    grid.innerHTML = "";
+
+    if(!list.length){
+      var empty = el("div","empty");
+      empty.innerHTML = "<b>No hay resultados.</b>";
+      grid.appendChild(empty);
+    }else{
+      for(var k=0;k<list.length;k++){
+        grid.appendChild(buildCard(list[k]));
+      }
+    }
+
+    var phone = WHATSAPP[state.brand] || WHATSAPP["default"];
+    $("fab").href = "https://wa.me/" + phone + "?text=" + encodeURIComponent("Hola, quiero información del catálogo de calzado.");
   }
 
   function render(){
     applyTheme();
+    renderGrid();
+  }
 
-    const list = sortList(PRODUCTS.filter(passes));
-    $("#grid").innerHTML = list.length ? list.map(card).join("") : `<div class="empty"><b>No hay resultados.</b></div>`;
+  function buildCard(p){
+    var card = el("article","card");
+    card.setAttribute("data-open", p.id);
 
-    const phone = WHATSAPP[state.brand] || WHATSAPP.default;
-    $("#fab").href = `https://wa.me/${phone}?text=${encodeURIComponent("Hola, quiero información del catálogo de calzado.")}`;
+    var img = el("div","img");
+    img.innerHTML = svgShoe(p.brand, p.name, p.colorHex);
 
-    $$('[data-open]').forEach(el=>{
-      el.addEventListener('click',(e)=>{
-        if(e.target && e.target.tagName==='A') return;
-        openModal(el.getAttribute('data-open'));
-      });
+    var body = el("div","body");
+
+    var badges = el("div","badges");
+    badges.innerHTML =
+      '<span class="badge">'+p.brand+'</span>'+
+      '<span class="badge">'+p.category+'</span>'+
+      (p.isNew ? '<span class="badge badge--new">NEW</span>' : '')+
+      ((p.discount||0)>0 ? '<span class="badge badge--sale">-'+p.discount+'%</span>' : '');
+
+    var name = el("h3","name");
+    name.textContent = p.name;
+
+    var meta = el("div","meta");
+    meta.innerHTML = 'SKU: <b>'+p.sku+'</b> &nbsp; | &nbsp; ★ <b>'+Number(p.rating).toFixed(1)+'</b>';
+
+    var priceRow = el("div","priceRow");
+    var sale = (p.discount||0)>0;
+    var price = el("div","price");
+    price.innerHTML = money(finalPrice(p)) + (sale ? ' <span class="old">'+money(p.price)+'</span>' : '');
+
+    var sizesTxt = el("div","meta");
+    var preview = (p.sizes||[]).slice(0,4).join(" ");
+    sizesTxt.innerHTML = 'Tallas: <b>'+preview+'</b>...';
+
+    priceRow.appendChild(price);
+    priceRow.appendChild(sizesTxt);
+
+    var actions = el("div","actions");
+
+    var btnView = el("button","btn");
+    btnView.type = "button";
+    btnView.textContent = "Ver";
+    btnView.addEventListener("click", function(){ openModal(p.id); });
+
+    var aWa = el("a","btn btn--primary");
+    aWa.href = waLink(p);
+    aWa.target = "_blank";
+    aWa.rel = "noopener";
+    aWa.textContent = "WhatsApp";
+
+    actions.appendChild(btnView);
+    actions.appendChild(aWa);
+
+    body.appendChild(badges);
+    body.appendChild(name);
+    body.appendChild(meta);
+    body.appendChild(priceRow);
+    body.appendChild(actions);
+
+    card.appendChild(img);
+    card.appendChild(body);
+
+    card.addEventListener("click", function(e){
+      if(e.target && e.target.tagName === "A") return;
+      if(e.target && e.target.tagName === "BUTTON") return;
+      openModal(p.id);
     });
+
+    return card;
   }
 
   function buildCarousel(p){
-    const slides = [0,1,2].map(i=>`<div class="slide">${svgShoeVariant(p.brand,p.name,p.colorHex,i)}</div>`).join("");
-    const dots = [0,1,2].map(i=>`<span class="dot" data-dot="${i}"></span>`).join("");
-    return `
-      <div class="carousel" id="car">
-        <div class="track" id="track">${slides}</div>
-        <button class="navBtn prev" type="button" data-nav="prev" aria-label="Anterior">‹</button>
-        <button class="navBtn next" type="button" data-nav="next" aria-label="Siguiente">›</button>
-        <div class="dots" id="dots">${dots}</div>
-      </div>`;
+    var wrap = el("div","carousel");
+
+    var track = el("div","track");
+
+    var s0 = el("div","slide"); s0.innerHTML = svgShoe(p.brand,p.name,p.colorHex);
+    var s1 = el("div","slide"); s1.innerHTML = svgShoe(p.brand,p.name,p.colorHex);
+    var s2 = el("div","slide"); s2.innerHTML = svgShoe(p.brand,p.name,p.colorHex);
+
+    track.appendChild(s0); track.appendChild(s1); track.appendChild(s2);
+
+    var prev = el("button","navBtn prev");
+    prev.type = "button";
+    prev.textContent = "‹";
+
+    var next = el("button","navBtn next");
+    next.type = "button";
+    next.textContent = "›";
+
+    var dots = el("div","dots");
+    for(var i=0;i<3;i++){
+      var d = el("span","dot");
+      d.setAttribute("data-dot", String(i));
+      dots.appendChild(d);
+    }
+
+    wrap.appendChild(track);
+    wrap.appendChild(prev);
+    wrap.appendChild(next);
+    wrap.appendChild(dots);
+
+    var idx = 0;
+    function setActive(i){
+      var ds = dots.querySelectorAll(".dot");
+      for(var k=0;k<ds.length;k++) ds[k].classList.remove("active");
+      if(ds[i]) ds[i].classList.add("active");
+    }
+
+    function go(i){
+      if(i < 0) i = 2;
+      if(i > 2) i = 0;
+      idx = i;
+      track.style.transform = "translateX(" + (-idx*100) + "%)";
+      track.style.transition = "transform .25s ease";
+      setActive(idx);
+    }
+
+    track.style.width = "300%";
+    track.style.transform = "translateX(0%)";
+    track.style.transition = "transform .25s ease";
+
+    var slides = track.querySelectorAll(".slide");
+    for(var z=0;z<slides.length;z++) slides[z].style.width = "33.3333%";
+
+    prev.addEventListener("click", function(){ go(idx-1); });
+    next.addEventListener("click", function(){ go(idx+1); });
+
+    var ds2 = dots.querySelectorAll(".dot");
+    for(var t=0;t<ds2.length;t++){
+      (function(i){ ds2[i].addEventListener("click", function(){ go(i); }); })(t);
+    }
+
+    var auto = setInterval(function(){ go(idx+1); }, 3200);
+    wrap.addEventListener("mouseenter", function(){ clearInterval(auto); });
+
+    go(0);
+
+    return wrap;
   }
 
   function openModal(id){
-    const p = PRODUCTS.find(x=>x.id===id);
+    var p = null;
+    for(var i=0;i<PRODUCTS.length;i++) if(PRODUCTS[i].id === id) p = PRODUCTS[i];
     if(!p) return;
 
-    const sale = (p.discount||0)>0;
-    const yape = YAPE_QR_DATA_URL
-      ? `<img src="${YAPE_QR_DATA_URL}" alt="QR Yape" />`
-      : `<div class="ph">QR Yape</div>`;
+    var sale = (p.discount||0)>0;
 
-    $("#modalBody").innerHTML = `
-      <div class="pdp">
-        <div class="left">
-          <div class="gallery">
-            ${buildCarousel(p)}
-          </div>
-        </div>
-        <div class="right">
-          <div class="badges">
-            <span class="badge">${p.brand}</span>
-            <span class="badge">${p.category}</span>
-            ${p.isNew?`<span class="badge badge--new">NEW</span>`:""}
-            ${sale?`<span class="badge badge--sale">-${p.discount}%</span>`:""}
-          </div>
-
-          <h3 class="pname">${p.name}</h3>
-          <div class="sub">
-            <span>SKU: <b>${p.sku}</b></span>
-            <span>★ <b>${p.rating.toFixed(1)}</b></span>
-          </div>
-
-          <div class="hr"></div>
-
-          <div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap">
-            <div class="price" style="font-size:28px">${money(finalPrice(p))}
-              ${sale?`<span class="old" style="font-size:13px">${money(p.price)}</span>`:""}
-            </div>
-          </div>
-
-          <div class="hr"></div>
-
-          <div class="sub" style="margin-top:0">Talla (opcional)</div>
-          <div class="sizes" id="sizes">
-            ${(p.sizes||[]).map(s=>`<button class="size" type="button" data-s="${s}">${s}</button>`).join("")}
-          </div>
-
-          <div class="hr"></div>
-
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <a class="btn btn--primary" id="buy" href="${waLink(p)}" target="_blank" rel="noopener" style="flex:1;min-width:220px">Comprar por WhatsApp</a>
-            <button class="btn" type="button" data-close="1">Cerrar</button>
-          </div>
-
-          <div class="hr"></div>
-
-          <div class="yape">
-            <div>
-              <div style="font-weight:950">Yape</div>
-              <div class="sub" style="margin-top:6px">${YAPE_OWNER?`Titular: <b>${YAPE_OWNER}</b>`:""}</div>
-            </div>
-            ${yape}
-          </div>
-        </div>
-      </div>`;
-
-    let chosen = null;
-    $$("#sizes .size").forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        $$("#sizes .size").forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        chosen = btn.dataset.s;
-        $("#buy").href = waLink(p, chosen);
-      });
-    });
-
-    setupCarousel();
-
-    $("#modal").classList.add('open');
-    $("#modal").setAttribute('aria-hidden','false');
-  }
-
-  function setupCarousel(){
-    const track = $("#track");
-    const dots = $$("#dots .dot");
-    if(!track || !dots.length) return;
-
-    function setActive(i){
-      dots.forEach(d=>d.classList.remove('active'));
-      const dot = dots[i];
-      if(dot) dot.classList.add('active');
+    var yapeBox = "";
+    if(YAPE_QR_DATA_URL){
+      yapeBox = '<img src="'+YAPE_QR_DATA_URL+'" alt="QR Yape" />';
+    }else{
+      yapeBox = '<div class="ph">QR Yape</div>';
     }
 
-    function currentIndex(){
-      const w = track.clientWidth || 1;
-      return Math.round(track.scrollLeft / w);
+    var modalBody = $("modalBody");
+    modalBody.innerHTML = "";
+
+    var pdp = el("div","pdp");
+
+    var left = el("div","left");
+    var gallery = el("div","gallery");
+    gallery.appendChild(buildCarousel(p));
+    left.appendChild(gallery);
+
+    var right = el("div","right");
+
+    var badges = el("div","badges");
+    badges.innerHTML =
+      '<span class="badge">'+p.brand+'</span>'+
+      '<span class="badge">'+p.category+'</span>'+
+      (p.isNew ? '<span class="badge badge--new">NEW</span>' : '')+
+      (sale ? '<span class="badge badge--sale">-'+p.discount+'%</span>' : '');
+
+    var pname = el("h3","pname");
+    pname.textContent = p.name;
+
+    var sub = el("div","sub");
+    sub.innerHTML = 'SKU: <b>'+p.sku+'</b> &nbsp; | &nbsp; ★ <b>'+Number(p.rating).toFixed(1)+'</b>';
+
+    var hr1 = el("div","hr");
+
+    var priceLine = el("div","price");
+    priceLine.style.fontSize = "28px";
+    priceLine.innerHTML = money(finalPrice(p)) + (sale ? ' <span class="old" style="font-size:13px">'+money(p.price)+'</span>' : '');
+
+    var hr2 = el("div","hr");
+
+    var sizeLabel = el("div","sub");
+    sizeLabel.style.marginTop = "0";
+    sizeLabel.textContent = "Talla (opcional)";
+
+    var sizes = el("div","sizes");
+
+    for(var s=0;s<(p.sizes||[]).length;s++){
+      (function(size){
+        var b = el("button","size");
+        b.type = "button";
+        b.textContent = String(size);
+        b.addEventListener("click", function(){
+          var all = sizes.querySelectorAll(".size");
+          for(var k=0;k<all.length;k++) all[k].classList.remove("active");
+          b.classList.add("active");
+          buy.href = waLink(p, size);
+        });
+        sizes.appendChild(b);
+      })(p.sizes[s]);
     }
 
-    setActive(0);
+    var hr3 = el("div","hr");
 
-    track.addEventListener('scroll',()=>{
-      setActive(currentIndex());
-    }, {passive:true});
+    var row = el("div","");
+    row.style.display = "flex";
+    row.style.gap = "10px";
+    row.style.flexWrap = "wrap";
 
-    $$("[data-nav]").forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const w = track.clientWidth || 1;
-        const i = currentIndex();
-        const next = btn.dataset.nav === "next" ? Math.min(2, i+1) : Math.max(0, i-1);
-        track.scrollTo({left: next * w, behavior: "smooth"});
-        setActive(next);
-      });
-    });
+    var buy = el("a","btn btn--primary");
+    buy.href = waLink(p);
+    buy.target = "_blank";
+    buy.rel = "noopener";
+    buy.style.flex = "1";
+    buy.style.minWidth = "220px";
+    buy.textContent = "Comprar por WhatsApp";
 
-    dots.forEach(d=>{
-      d.addEventListener('click',()=>{
-        const i = Number(d.dataset.dot||0);
-        const w = track.clientWidth || 1;
-        track.scrollTo({left: i * w, behavior: "smooth"});
-        setActive(i);
-      });
-    });
+    var closeBtn = el("button","btn");
+    closeBtn.type = "button";
+    closeBtn.textContent = "Cerrar";
+    closeBtn.setAttribute("data-close","1");
+
+    row.appendChild(buy);
+    row.appendChild(closeBtn);
+
+    var hr4 = el("div","hr");
+
+    var yape = el("div","yape");
+    var yleft = el("div","");
+    yleft.innerHTML = '<div style="font-weight:950">Yape</div>' + (YAPE_OWNER ? '<div class="sub" style="margin-top:6px">Titular: <b>'+YAPE_OWNER+'</b></div>' : '');
+    var yright = el("div","");
+    yright.innerHTML = yapeBox;
+
+    yape.appendChild(yleft);
+    yape.appendChild(yright);
+
+    right.appendChild(badges);
+    right.appendChild(pname);
+    right.appendChild(sub);
+    right.appendChild(hr1);
+    right.appendChild(priceLine);
+    right.appendChild(hr2);
+    right.appendChild(sizeLabel);
+    right.appendChild(sizes);
+    right.appendChild(hr3);
+    right.appendChild(row);
+    right.appendChild(hr4);
+    right.appendChild(yape);
+
+    pdp.appendChild(left);
+    pdp.appendChild(right);
+
+    modalBody.appendChild(pdp);
+
+    $("modal").classList.add("open");
+    $("modal").setAttribute("aria-hidden","false");
   }
 
   function closeModal(){
-    $("#modal").classList.remove('open');
-    $("#modal").setAttribute('aria-hidden','true');
+    $("modal").classList.remove("open");
+    $("modal").setAttribute("aria-hidden","true");
   }
 
   function syncFromUI(){
-    state.brand = $("#brand").value;
-    state.cat = $("#cat").value;
-    state.size = $("#size").value;
-    state.sort = $("#sort").value;
-    render();
+    state.cat = $("cat").value;
+    state.size = $("size").value;
+    state.sort = $("sort").value;
+    renderGrid();
   }
 
-  $("#q").addEventListener('input',(e)=>{state.q=e.target.value;render();});
-  $("#apply").addEventListener('click',syncFromUI);
-  $("#brand").addEventListener('change',syncFromUI);
-  $("#cat").addEventListener('change',syncFromUI);
-  $("#size").addEventListener('change',syncFromUI);
-  $("#sort").addEventListener('change',syncFromUI);
+  function setBrand(b){
+    state.brand = b;
+    posterIdx = 0;
+    applyTheme();
+    renderGrid();
+    if(b === "Caterpillar") playEffect("sparks");
+    else if(b === "Columbia") playEffect("rain");
+    else playEffect("bubbles");
+    posterStart();
+  }
 
-  $("#reset").addEventListener('click',()=>{
-    state.q=""; state.brand="All"; state.cat="All"; state.size="All"; state.sort="relevance";
-    $("#q").value="";
-    $("#brand").value="All";
-    $("#cat").value="All";
-    $("#size").value="All";
-    $("#sort").value="relevance";
-    render();
+  document.querySelectorAll(".tab").forEach(function(btn){
+    btn.addEventListener("click", function(){ setBrand(btn.getAttribute("data-brand")); });
   });
 
-  $("#modal").addEventListener('click',(e)=>{ if(e.target && e.target.dataset && e.target.dataset.close) closeModal(); });
-  document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeModal(); });
+  $("posterPrev").addEventListener("click", function(){ posterGo(-1); posterStart(); });
+  $("posterNext").addEventListener("click", function(){ posterGo(1); posterStart(); });
 
-  function runTests(){
+  $("q").addEventListener("input", function(e){ state.q = e.target.value; renderGrid(); });
+  $("apply").addEventListener("click", syncFromUI);
+  $("cat").addEventListener("change", syncFromUI);
+  $("size").addEventListener("change", syncFromUI);
+  $("sort").addEventListener("change", syncFromUI);
+
+  $("home").addEventListener("click", function(){
+    state.q=""; state.brand="All"; state.cat="All"; state.size="All"; state.sort="relevance";
+    $("q").value="";
+    $("cat").value="All";
+    $("size").value="All";
+    $("sort").value="relevance";
+    posterIdx = 0;
+    render();
+    window.scrollTo({top:0, behavior:"smooth"});
+  });
+
+  $("reset").addEventListener("click", function(){
+    state.q=""; state.cat="All"; state.size="All"; state.sort="relevance";
+    $("q").value="";
+    $("cat").value="All";
+    $("size").value="All";
+    $("sort").value="relevance";
+    renderGrid();
+  });
+
+  $("modal").addEventListener("click", function(e){
+    if(e.target && e.target.getAttribute && e.target.getAttribute("data-close")) closeModal();
+  });
+
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape") closeModal();
+  });
+
+  // Tests
+  (function runTests(){
     try{
-      const sample = PRODUCTS[0];
-      const url1 = waLink(sample);
-      const url2 = waLink(sample, 41);
-      console.assert(url1.startsWith("https://wa.me/"), "waLink: debe iniciar con https://wa.me/");
-      console.assert(url2.includes(encodeURIComponent("Talla: 41")), "waLink: debe incluir talla cuando se pasa size");
-      console.assert(!url1.includes(encodeURIComponent("Talla:")), "waLink: no debe incluir talla cuando no se selecciona");
-    }catch(e){
-      console.error(e);
-    }
-  }
+      var p = PRODUCTS[0];
+      var u1 = waLink(p);
+      var u2 = waLink(p, 41);
+      console.assert(u1.indexOf("https://wa.me/") === 0, "waLink debe iniciar con https://wa.me/");
+      console.assert(u2.indexOf(encodeURIComponent("Talla: 41")) >= 0, "waLink debe incluir talla si se selecciona");
+      console.assert(u1.indexOf(encodeURIComponent("Talla:")) === -1, "waLink no debe incluir talla si no se selecciona");
+      console.assert(u2.indexOf("%0A") >= 0, "waLink debe codificar saltos de línea como %0A");
 
+      var h = $("posterSlide");
+      console.assert(!!h, "posterSlide debe existir");
+    }catch(err){
+      console.error(err);
+    }
+  })();
+
+  // Init
   render();
-  runTests();
+  posterStart();
 </script>
 </body>
 </html>
